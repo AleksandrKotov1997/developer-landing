@@ -159,6 +159,36 @@ VITE_API_URL=http://localhost:4000
 
 Если переменная не указана, frontend использует `http://localhost:4000` по умолчанию.
 
+## Деплой
+
+Frontend задеплоен на Vercel:
+
+```txt
+https://developer-landing-delta.vercel.app
+```
+
+Backend задеплоен на Render Free:
+
+```txt
+https://developer-landing-api.onrender.com
+```
+
+Health check backend:
+
+```txt
+https://developer-landing-api.onrender.com/api/health
+```
+
+Важно: локально отправка email через Mail.ru SMTP работает. На Render Free отправка через SMTP недоступна, потому что бесплатные web services блокируют исходящие подключения на SMTP-порты `25`, `465` и `587`. Из-за этого production-запрос формы доходит до backend, проходит CORS, но падает на этапе SMTP-отправки письма.
+
+Чтобы email-отправка работала на production, нужен один из вариантов:
+
+- платный Render instance с доступом к SMTP;
+- другой backend-хостинг без блокировки SMTP;
+- email API provider через HTTPS вместо SMTP.
+
+В рамках тестового проекта оставлен бесплатный деплой, а ограничение Render Free явно описано в README.
+
 ## Как реализована форма
 
 Форма находится на frontend в блоке контактов.
