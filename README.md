@@ -103,6 +103,22 @@ Frontend запускается на:
 http://localhost:5173
 ```
 
+### Backend через Docker
+
+Backend также можно запустить через Docker из корня проекта:
+
+```bash
+docker compose up --build
+```
+
+После запуска backend будет доступен на:
+
+```txt
+http://localhost:4000
+```
+
+Frontend при этом запускается отдельно обычной командой `npm run dev` из папки `client`.
+
 ## Переменные окружения
 
 ### Backend

@@ -1,0 +1,118 @@
+.card {
+  width: min(100%, 500px);
+  min-height: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  background: var(--color-code-card-background);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.controls {
+  display: flex;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.controls span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.controls span:nth-child(1) {
+  background: var(--color-code-control-close);
+}
+
+.controls span:nth-child(2) {
+  background: var(--color-code-control-minimize);
+}
+
+.controls span:nth-child(3) {
+  background: var(--color-code-control-expand);
+}
+
+.fileName {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.code {
+  margin: 0;
+  padding: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 18% 0%,
+      var(--color-code-editor-glow),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      var(--color-code-editor-tint),
+      var(--color-code-background)
+    );
+}
+
+.line {
+  display: block;
+  color: var(--color-text-primary);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 6px;
+}
+
+.line:last-child {
+  margin-bottom: 0;
+}
+
+.indent {
+  display: inline-block;
+  width: 18px;
+}
+
+.keyword,
+.variable,
+.operator,
+.brace,
+.property,
+.string,
+.array {
+  font: inherit;
+}
+
+.keyword {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.variable,
+.property {
+  color: var(--color-text-primary);
+  font-weight: 700;
+}
+
+.operator,
+.brace {
+  color: var(--color-text-muted);
+}
+
+.string,
+.array {
+  color: var(--color-text-muted);
+}

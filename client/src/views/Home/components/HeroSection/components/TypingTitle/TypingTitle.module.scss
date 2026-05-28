@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  height: 34px;
+  overflow: hidden;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.text {
+  display: inline-block;
+  line-height: 34px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 26px;
+  margin-left: 6px;
+  background: currentColor;
+  animation: blink 0.9s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
