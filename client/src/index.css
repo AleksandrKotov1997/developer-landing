@@ -21,6 +21,18 @@
   --color-primary-border: #bfdbfe;
   --color-primary-border-fade: rgba(191, 219, 254, 0.55);
 
+  --color-code-control-close: #ef4444;
+  --color-code-control-minimize: #f59e0b;
+  --color-code-control-expand: #22c55e;
+  --color-code-card-background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8fbff 100%
+  );
+  --color-code-editor-glow: rgba(37, 99, 235, 0.08);
+  --color-code-editor-tint: rgba(37, 99, 235, 0.045);
+  --color-code-background: rgba(255, 255, 255, 0);
+
   --color-success: #16a34a;
   --color-warning: #f59e0b;
   --color-error: #dc2626;
