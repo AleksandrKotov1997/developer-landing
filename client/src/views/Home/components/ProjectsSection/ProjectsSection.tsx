@@ -1,43 +1,53 @@
+import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 
 import styles from "./ProjectsSection.module.scss";
 
 const projects = [
   {
-    title: "NDA DMS System",
-    type: "Commercial project",
+    title: "Developer Landing",
+    type: "Personal portfolio project",
     description:
-      "Коммерческая DMS-платформа для автомобильных дилеров. Работал с админ-разделами, embed-экранами и задачами вокруг инвентаря, пользователей, дилеров, ролей и метрик.",
-    responsibilities: [
-      "реализовывал CRUD-сценарии, формы, таблицы, drawer/modals и workflow UI",
-      "работал с React Query, Tuyau, Inertia и Ant Design",
-      "добавлял loading, empty, success и error states",
-      "делал безопасный рефакторинг повторяющихся UI-паттернов",
+      "В этом проекте я показываю, как собираю личную developer-визитку: продумываю позиционирование, структуру секций, адаптивную верстку и интерактивный блок рабочих сценариев.",
+    tags: [
+      "React",
+      "TypeScript",
+      "SCSS Modules",
+      "Interactive UI",
+      "Responsive UI",
     ],
+    proof:
+      "Показываю структуру frontend-проекта, работу с компонентами, визуальную аккуратность и умение доводить интерфейс до финального состояния",
   },
   {
-    title: "Whitelabel theme editor",
-    type: "Feature experience",
+    title: "Commercial Admin UI",
+    type: "Commercial experience",
     description:
-      "Фича для настройки внешнего вида embed-интерфейса. Работал с цветами, радиусами, шрифтами, live preview, сохранением настроек и отображением результата в разных состояниях UI.",
-    responsibilities: [
-      "выносил конфигурацию темы в понятную структуру",
-      "подключал live preview для разных секций интерфейса",
-      "работал с токенами Ant Design и состояниями формы",
-      "адаптировал решение под существующую архитектуру проекта",
-    ],
+      "В коммерческих задачах я работал с admin/data-driven интерфейсами: таблицами, фильтрами, пагинацией, формами, модальными окнами, drawer-сценариями, пользовательскими состояниями и продуктовой логикой.",
+    tags: ["Tables", "Filters", "Forms", "Modals", "API", "States"],
+
+    proof:
+      "Показываю опыт работы с production-интерфейсами, где важны данные, состояния, действия пользователя и аккуратная интеграция в существующий проект",
   },
   {
-    title: "BookFlow",
-    type: "Learning backend project",
+    title: "Frontend + API Integration",
+    type: "Fullstack-oriented frontend experience",
     description:
-      "Учебный проект сервиса бронирования. На нём я закреплял backend-основы: маршруты, контроллеры, валидацию, модели, работу с базой данных и форматирование ответов API.",
-    responsibilities: [
-      "реализовывал API endpoints для services",
-      "работал с валидацией входных данных",
-      "проверял API через curl и разбирал ответы сервера",
-      "разбирал связь controller → validator → model → response transformer",
-    ],
+      "Я связываю frontend с backend API: обрабатываю загрузку, ошибки, валидацию, успешные сценарии и проверяю, что интерфейс корректно реагирует на реальные ответы сервера.",
+    tags: ["REST API", "React Query", "Validation", "Errors", "Typed Client"],
+
+    proof:
+      "Показываю понимание API-контрактов, frontend-состояний и сценариев, где пользователь должен получить понятную обратную связь",
+  },
+  {
+    title: "BookFlow / Backend Foundations",
+    type: "Backend learning project",
+    description:
+      "В учебном backend-проекте BookFlow я разбираю основы серверной части: routes, controllers, validators, models, работу с базой данных и форматирование API-ответов.",
+    tags: ["Node.js", "Express", "Zod", "PostgreSQL", "API"],
+
+    proof:
+      "Показываю backend-контекст, который помогает мне лучше понимать API, ограничения сервера и связку frontend с данными",
   },
 ];
 
@@ -45,31 +55,39 @@ export const ProjectsSection = () => {
   return (
     <div id="projects">
       <Section
-        eyebrow="Опыт"
-        title="Задачи, где важны аккуратность, данные и понятный результат"
-        description="Ниже — примеры проектов и фич, где я работал с реальными сценариями: от экранов и форм до интеграции с сервером и проверки результата в браузере."
+        title="Проекты и опыт"
+        description="Практический опыт работы с продуктовыми интерфейсами и интеграциями."
       >
         <div className={styles.grid}>
-          {projects.map((project) => (
-            <article className={styles.card} key={project.title}>
+          {projects.map((project, index) => (
+            <Reveal
+              as="article"
+              className={styles.card}
+              delay={index * 80}
+              key={project.title}
+            >
               <div className={styles.header}>
-                <p className={styles.type}>{project.type}</p>
-                <h3 className={styles.title}>{project.title}</h3>
+                <div className={styles.headerTop}>
+                  <h3 className={styles.title}>{project.title}</h3>
+                  <p className={styles.type}>{project.type}</p>
+                </div>
                 <p className={styles.description}>{project.description}</p>
               </div>
 
               <div className={styles.body}>
-                <p className={styles.label}>Моя зона работы</p>
-
-                <ul className={styles.list}>
-                  {project.responsibilities.map((item) => (
-                    <li className={styles.item} key={item}>
-                      {item}
+                <ul className={styles.tags}>
+                  {project.tags.map((tag) => (
+                    <li className={styles.tag} key={tag}>
+                      {tag}
                     </li>
                   ))}
                 </ul>
+                <div className={styles.proof}>
+                  <p className={styles.proofLabel}>Что это показывает:</p>
+                  <p className={styles.proofText}>{project.proof}</p>
+                </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </Section>

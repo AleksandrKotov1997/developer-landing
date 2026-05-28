@@ -1,7 +1,7 @@
 {
   "name": "developer-landing-api",
   "version": "1.0.0",
-  "description": "Backend API for developer landing contact form",
+  "description": "Backend API for developer landing work scenario feature",
   "main": "dist/server.js",
   "type": "module",
   "scripts": {
@@ -16,14 +16,12 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "nodemailer": "^7.0.11",
     "zod": "^4.1.13"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.2",
-    "@types/nodemailer": "^7.0.4",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }

@@ -9,12 +9,11 @@ type Props = {
   children: ReactNode;
 };
 
-export const Section = ({ eyebrow, title, description, children }: Props) => {
+export const Section = ({ title, description, children }: Props) => {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
-        <h2>{title}</h2>
+        <h2 className={styles.title}>{title}</h2>
         {description ? (
           <p className={styles.description}>{description}</p>
         ) : null}

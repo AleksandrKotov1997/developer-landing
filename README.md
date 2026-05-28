@@ -1,8 +1,8 @@
 # Developer Landing — Котов Александр
 
-Небольшой лендинг-презентация обо мне как frontend-разработчике.
+Личный лендинг-визитка frontend / fullstack-oriented разработчика.
 
-Проект сделан как тестовое задание и показывает полный цикл работы: frontend, backend API, форма обратной связи, валидация, обработка loading/success/error состояний, отправка email и AI helper endpoint.
+Проект показывает мой профиль, опыт с продуктовыми интерфейсами, работу с React/TypeScript, небольшую backend API-фичу и аккуратную структуру frontend/backend приложения.
 
 ## Стек
 
@@ -20,28 +20,24 @@
 - Express
 - TypeScript
 - Zod
-- Nodemailer
-- Mail.ru SMTP
 
 ## Что реализовано
 
-- адаптивный лендинг-презентация;
-- секции с информацией обо мне, подходом к работе, опытом и контактами;
-- форма обратной связи с полями: имя, телефон, email, комментарий;
-- frontend-валидация формы;
-- backend-валидация через Zod;
-- отправка письма владельцу сайта;
-- отправка копии письма пользователю;
-- обработка loading, success и error состояний;
-- отдельный backend endpoint для AI helper;
-- README с описанием запуска и реализации.
+- адаптивный лендинг-визитка;
+- секции с опытом, навыками, workflow, проектами и контактами;
+- интерактивный блок Work Scenario;
+- backend endpoint для генерации текста сценария;
+- backend-валидация выбранных параметров через Zod;
+- scroll reveal анимации для секций и карточек;
+- frontend-only контакты: телефон, Telegram, GitHub, GitLab и резюме PDF;
+- отдельный frontend и backend deploy.
 
 ## Структура проекта
 
 ```txt
 developer-landing/
   client/   # React frontend
-  server/   # Node.js backend API
+  server/   # Express backend API
 ```
 
 ### Frontend
@@ -61,21 +57,19 @@ client/src/
 ```txt
 server/src/
   modules/
-    contact/    # contact form module
-    ai/         # AI helper module
+    workScenario/  # scenario text API module
   shared/
-    config/     # env config
-    errors/     # API error handling
-    mailer/     # Nodemailer transport
+    config/        # env config
+    errors/        # API error handling
   app.ts
   server.ts
 ```
 
-## Как запустить проект локально
+## Как запустить локально
 
-Проект состоит из двух частей, поэтому локально нужно запустить frontend и backend отдельно.
+Проект состоит из frontend и backend, поэтому локально их нужно запустить отдельно.
 
-### 1. Backend
+### Backend
 
 ```bash
 cd server
@@ -95,7 +89,7 @@ Health check:
 http://localhost:4000/api/health
 ```
 
-### 2. Frontend
+### Frontend
 
 ```bash
 cd client
@@ -113,39 +107,22 @@ http://localhost:5173
 
 ### Backend
 
-Для backend нужен файл:
+Файл:
 
 ```txt
 server/.env
 ```
 
-Пример находится в:
-
-```txt
-server/.env.example
-```
-
-Пример переменных:
+Пример:
 
 ```env
 PORT=4000
 CLIENT_URL=http://localhost:5173
-
-MAIL_HOST=smtp.mail.ru
-MAIL_PORT=465
-MAIL_USER=kotov.aleksandr.9797@mail.ru
-MAIL_PASSWORD=my_mail_ru_external_app_password
-MAIL_FROM=kotov.aleksandr.9797@mail.ru
-MAIL_TO=kotov.aleksandr.9797@mail.ru
 ```
-
-`MAIL_PASSWORD` — это не основной пароль от почты, а пароль для внешнего приложения Mail.ru.
-
-Файл `server/.env` не должен попадать в GitHub.
 
 ### Frontend
 
-Для frontend можно использовать файл:
+Файл:
 
 ```txt
 client/.env
@@ -157,7 +134,33 @@ client/.env
 VITE_API_URL=http://localhost:4000
 ```
 
-Если переменная не указана, frontend использует `http://localhost:4000` по умолчанию.
+Если `VITE_API_URL` не указан, frontend использует `http://localhost:4000` по умолчанию.
+
+## Backend API
+
+### Health check
+
+```txt
+GET /api/health
+```
+
+### Work Scenario
+
+```txt
+POST /api/work-scenario
+```
+
+Endpoint принимает выбранный тип задачи, контекст проекта и тон ответа. Backend валидирует payload через Zod и возвращает готовый scenario-based текст.
+
+Пример payload:
+
+```json
+{
+  "taskType": "adminUi",
+  "projectContext": "existingProject",
+  "tone": "professional"
+}
+```
 
 ## Деплой
 
@@ -167,7 +170,7 @@ Frontend задеплоен на Vercel:
 https://developer-landing-delta.vercel.app
 ```
 
-Backend задеплоен на Render Free:
+Backend задеплоен на Render:
 
 ```txt
 https://developer-landing-api.onrender.com
@@ -179,80 +182,9 @@ Health check backend:
 https://developer-landing-api.onrender.com/api/health
 ```
 
-Важно: локально отправка email через Mail.ru SMTP работает. На Render Free отправка через SMTP недоступна, потому что бесплатные web services блокируют исходящие подключения на SMTP-порты `25`, `465` и `587`. Из-за этого production-запрос формы доходит до backend, проходит CORS, но падает на этапе SMTP-отправки письма.
+Контакты на сайте работают без backend: это обычные frontend-ссылки на телефон, Telegram, GitHub, GitLab и PDF-резюме.
 
-Чтобы email-отправка работала на production, нужен один из вариантов:
-
-- платный Render instance с доступом к SMTP;
-- другой backend-хостинг без блокировки SMTP;
-- email API provider через HTTPS вместо SMTP.
-
-В рамках тестового проекта оставлен бесплатный деплой, а ограничение Render Free явно описано в README.
-
-## Как реализована форма
-
-Форма находится на frontend в блоке контактов.
-
-Пользователь заполняет:
-
-- имя;
-- телефон;
-- email;
-- комментарий;
-- необязательное поле AI summary.
-
-На frontend реализована валидация:
-
-- имя — не менее 2 символов;
-- телефон — только цифры;
-- email — корректный формат;
-- комментарий — не менее 10 символов.
-
-Ошибки показываются под соответствующими полями красным цветом.
-
-После успешной frontend-валидации данные отправляются на backend:
-
-```txt
-POST /api/contact
-```
-
-Backend повторно валидирует данные через Zod. После успешной проверки backend отправляет два письма через Nodemailer:
-
-- письмо владельцу сайта на `MAIL_TO`;
-- копию письма пользователю на email из формы.
-
-Если отправка успешна, frontend показывает success-сообщение. Если возникает ошибка, frontend показывает error-состояние.
-
-## AI helper
-
-В проекте реализован отдельный endpoint:
-
-```txt
-POST /api/ai/summary
-```
-
-Он принимает комментарий и возвращает короткое summary.
-
-Сейчас AI helper работает как локальный fallback без внешнего API-ключа. Это сделано потому, что OpenAI API key в проекте не используется. При этом логика вынесена в отдельный backend-модуль, поэтому при наличии ключа endpoint можно заменить на реальную интеграцию с OpenAI API без изменения структуры frontend.
-
-## Какие AI-инструменты использовались
-
-В процессе выполнения тестового я использовал AI как помощника:
-
-- для планирования структуры frontend/backend;
-- для подготовки черновиков текстов;
-- для формулировки README.
-
-## Что пришлось исправлять вручную
-
-После AI-подсказок я вручную проверял и исправлял:
-
-- визуальные отступы между секциями;
-- тексты, чтобы убрать повторения и тавтологию;
-- frontend-валидацию формы;
-- поведение ошибок под конкретными полями;
-- настройку SMTP через Mail.ru;
-- сборку frontend и backend.
+Backend сейчас нужен для блока Work Scenario.
 
 ## Проверка сборки
 
@@ -274,7 +206,7 @@ npm run build
 
 ## Контакты
 
-- Email: kotov.aleksandr.9797@mail.ru
 - Телефон: +7 902 674-78-64
+- Telegram: https://t.me/aleksandr_kotoff
 - GitHub: https://github.com/AleksandrKotov1997
 - GitLab: https://gitlab.skillbox.ru/aleksandr_kotov_3
