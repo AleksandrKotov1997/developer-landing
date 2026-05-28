@@ -1,2 +1,1 @@
-export * from "./aiApi";
-export * from "./contactApi";
+export * from "./workScenarioApi";

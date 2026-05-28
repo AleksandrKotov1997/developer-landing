@@ -1,8 +1,7 @@
 import cors from "cors";
 import express from "express";
 
-import { aiRouter } from "./modules/ai/index.js";
-import { contactRouter } from "./modules/contact/index.js";
+import { workScenarioRouter } from "./modules/workScenario/index.js";
 import { env } from "./shared/config/env.js";
 import { errorHandler } from "./shared/errors/errorHandler.js";
 
@@ -23,7 +22,6 @@ app.get("/api/health", (_request, response) => {
   });
 });
 
-app.use("/api/contact", contactRouter);
-app.use("/api/ai", aiRouter);
+app.use("/api/work-scenario", workScenarioRouter);
 
 app.use(errorHandler);

@@ -1,73 +1,66 @@
+import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
+import { LayersIcon, TargetIcon } from "@/components/Icon/icons";
 
 import styles from "./AboutSection.module.scss";
 
-const stackItems = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Vite",
-  "HTML5",
-  "CSS3 / SCSS",
-  "Ant Design",
-  "React Query",
-  "Inertia",
-  "Tuyau",
-  "Node.js",
-  "AdonisJS basics",
-];
-
-const directionItems = [
-  "admin/data-driven интерфейсы",
-  "формы и валидация",
-  "таблицы, фильтры и пагинация",
-  "интеграция frontend с backend API",
-  "loading / success / error states",
-  "аккуратный рефакторинг существующего кода",
+const aboutCards = [
+  {
+    icon: LayersIcon,
+    title: "Опыт",
+    content:
+      "В коммерческой разработке я работал с админ-панелями, embed-страницами, таблицами, модальными окнами, drawer-сценариями и формами. Мне близки задачи, где интерфейс связан с реальной логикой: загрузкой данных, состояниями, валидацией и действиями пользователя. " +
+      "В таких задачах мне важно не только сверстать экран, но и понять, какие данные показывает интерфейс, где пользователь может ошибиться и какая обратная связь поможет ему двигаться дальше. " +
+      "Мне комфортно работать с интерфейсами, где нужно внимательно относиться к деталям: текстам ошибок, пустым состояниям, доступности действий и тому, как экран ведёт себя после ответа сервера.",
+  },
+  {
+    icon: TargetIcon,
+    title: "Направления",
+    items: [
+      "admin/data-driven интерфейсы",
+      "формы и валидация",
+      "таблицы, фильтры и пагинация",
+      "интеграция frontend с backend API",
+      "loading / success / error states",
+      "аккуратный рефакторинг существующего кода",
+    ],
+  },
 ];
 
 export const AboutSection = () => {
   return (
     <Section
-      eyebrow="О себе"
       title="Работаю с интерфейсами, где важны данные, формы и понятный пользовательский путь"
       description="Мне близки задачи, где нужно не просто сверстать экран, а связать его с реальной логикой: загрузкой данных, действиями пользователя, ошибками и итоговым результатом."
     >
       <div className={styles.grid}>
-        <article className={styles.card}>
-          <h3 className={styles.cardTitle}>Опыт</h3>
+        {aboutCards.map((card, index) => {
+          const Icon = card.icon;
 
-          <p className={styles.text}>
-            В коммерческой разработке работал с админ-панелями,
-            embed-страницами, таблицами, модальными окнами, drawer-сценариями и
-            формами. Важный для меня принцип — сначала понять существующий
-            паттерн проекта, а потом встраивать решение без лишнего усложнения.
-          </p>
-        </article>
+          return (
+            <Reveal
+              as="article"
+              className={styles.card}
+              delay={index * 80}
+              key={card.title}
+            >
+              <Icon className={styles.cardIcon} aria-hidden="true" />
+              <h3 className={styles.cardTitle}>{card.title}</h3>
 
-        <article className={styles.card}>
-          <h3 className={styles.cardTitle}>Направления</h3>
-
-          <ul className={styles.list}>
-            {directionItems.map((item) => (
-              <li className={styles.listItem} key={item}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </article>
-      </div>
-
-      <div className={styles.stack}>
-        <h3 className={styles.stackTitle}>Стек</h3>
-
-        <ul className={styles.tags}>
-          {stackItems.map((item) => (
-            <li className={styles.tag} key={item}>
-              {item}
-            </li>
-          ))}
-        </ul>
+              {"content" in card ? (
+                <p className={styles.text}>{card.content}</p>
+              ) : (
+                <ul className={styles.list}>
+                  {card.items.map((item) => (
+                    <li className={styles.listItem} key={item}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </Reveal>
+          );
+        })}
       </div>
     </Section>
   );
