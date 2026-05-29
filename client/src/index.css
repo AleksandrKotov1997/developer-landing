@@ -64,6 +64,8 @@
   --radius-xl: 28px;
   --radius-2xl: 32px;
 
+  --layout-page-max-width: 1600px;
+
   font-family: var(--font-sans);
   color: var(--color-text-primary);
   background: var(--color-bg);
@@ -89,6 +91,8 @@ body {
 
 main {
   width: 100%;
+  max-width: var(--layout-page-max-width);
+  margin: 0 auto;
   padding: 0 clamp(20px, 4vw, 64px);
 }
 
