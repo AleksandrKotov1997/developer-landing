@@ -54,6 +54,7 @@
 }
 
 .subtitle {
+  min-height: 34px;
   margin: 18px 0 0;
   color: var(--color-text-primary);
   font-size: clamp(1.25rem, 2.1vw, 1.75rem);

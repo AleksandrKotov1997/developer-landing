@@ -125,12 +125,6 @@
   line-height: 1.5;
 }
 
-@media (max-width: 980px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .type {
   display: inline-flex;
   width: fit-content;
@@ -168,4 +162,23 @@
   border-color: var(--color-border-soft);
   color: var(--color-text-primary);
   background: var(--color-surface-muted);
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .headerTop {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .type {
+    max-width: 100%;
+    white-space: nowrap;
+    font-size: 0.76rem;
+  }
 }

@@ -9,7 +9,7 @@ import {
 import styles from "./WorkScenarioSection.module.scss";
 
 export const WorkScenarioSection = () => {
-  const { scenarioText, getSelectedValue, handleOptionClick } =
+  const { isLoading, scenarioText, getSelectedValue, handleOptionClick } =
     useWorkScenario();
 
   const Icon = badge.icon;
@@ -50,6 +50,7 @@ export const WorkScenarioSection = () => {
                     <button
                       aria-pressed={isActive}
                       className={`${styles.option} ${isActive ? styles.optionActive : ""}`}
+                      disabled={isLoading}
                       key={option.value}
                       type="button"
                       onClick={() => handleOptionClick(group.key, option.value)}
@@ -69,9 +70,10 @@ export const WorkScenarioSection = () => {
           </div>
 
           <textarea
-            className={styles.resultTextarea}
+            aria-busy={isLoading}
+            className={`${styles.resultTextarea} ${isLoading ? styles.resultTextareaLoading : ""}`}
             readOnly
-            value={scenarioText}
+            value={isLoading ? "Идёт загрузка..." : scenarioText}
           />
 
           <ul className={styles.resultStatuses}>

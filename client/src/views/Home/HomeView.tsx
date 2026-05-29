@@ -31,7 +31,7 @@ export const HomeView = () => {
       <Reveal>
         <WorkflowSection />
       </Reveal>
-      <Reveal>
+      <Reveal threshold={0.08}>
         <ProjectsSection />
       </Reveal>
       <Reveal>

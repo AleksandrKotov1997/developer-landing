@@ -16,6 +16,7 @@ type RevealProps = HTMLAttributes<HTMLElement> &
     as?: ElementType;
     className?: string;
     delay?: number;
+    threshold?: number;
   };
 
 export const Reveal = ({
@@ -23,6 +24,7 @@ export const Reveal = ({
   as: Component = "div",
   className,
   delay = 0,
+  threshold = 0.35,
   style,
   ...props
 }: RevealProps) => {
@@ -45,7 +47,7 @@ export const Reveal = ({
         }
       },
       {
-        threshold: 0.35,
+        threshold,
         rootMargin: "0px 0px -10% 0px",
       },
     );
@@ -55,7 +57,7 @@ export const Reveal = ({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [threshold]);
 
   useEffect(() => {
     if (!isVisible) {

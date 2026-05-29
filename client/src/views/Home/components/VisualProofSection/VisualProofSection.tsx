@@ -15,30 +15,30 @@ const focusItems = [
   },
   {
     icon: DatabaseIcon,
-    title: "User scenarios",
+    title: "Пользовательские сценарии",
   },
   {
     icon: ServerIcon,
-    title: "API context",
+    title: "API-контекст",
   },
   {
     icon: ZapIcon,
-    title: "Small safe changes",
+    title: "Безопасные изменения",
   },
 ];
 
 const stackItems = [
   {
-    title: "Frontend architecture",
+    title: "Frontend-архитектура",
   },
   {
-    title: "Backend communication",
+    title: "Backend-коммуникация",
   },
   {
-    title: "Validation & states",
+    title: "Валидация и состояния",
   },
   {
-    title: "Deploy awareness",
+    title: "Понимание deploy-процесса",
   },
 ];
 
@@ -49,24 +49,24 @@ export const VisualProofSection = () => {
         <div className={styles.panelHeader}>
           <div className={styles.panelTitle}>
             <CodeIcon2 className={styles.panelIcon} aria-hidden="true" />
-            <h2>Developer Profile</h2>
+            <h2>Профиль разработчика</h2>
           </div>
 
           <div className={styles.statusBadge}>
             <CheckCircleIcon className={styles.statusIcon} aria-hidden="true" />
-            Open to work
+            Открыт к предложениям
           </div>
         </div>
 
         <div className={styles.currentStatus}>
-          <span className={styles.fieldLabel}>Current Focus</span>
+          <span className={styles.fieldLabel}>Текущий фокус</span>
           <strong className={styles.fieldValue}>
-            Product UI and data-driven interfaces
+            Product UI и data-driven интерфейсы
           </strong>
         </div>
 
         <div className={styles.group}>
-          <h3 className={styles.groupTitle}>Focus Areas</h3>
+          <h3 className={styles.groupTitle}>Ключевые направления</h3>
 
           <div className={styles.focusGrid}>
             {focusItems.map((item) => {
@@ -83,7 +83,7 @@ export const VisualProofSection = () => {
         </div>
 
         <div className={styles.group}>
-          <h3 className={styles.groupTitle}>Project Context</h3>
+          <h3 className={styles.groupTitle}>Контекст проектов</h3>
 
           <div className={styles.stackList}>
             {stackItems.map((item) => (

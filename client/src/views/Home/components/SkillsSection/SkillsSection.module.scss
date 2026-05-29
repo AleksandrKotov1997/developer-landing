@@ -165,8 +165,27 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 760px) {
   .list {
     grid-template-columns: 1fr;
+  }
+
+  .legend {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .legendItem {
+    width: 100%;
+    min-width: 0;
+    gap: 10px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .legendItem:not(:last-child)::after {
+    display: none;
   }
 }

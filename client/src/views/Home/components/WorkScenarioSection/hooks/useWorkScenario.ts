@@ -14,9 +14,12 @@ export const useWorkScenario = () => {
   const [selectedScenario, setSelectedScenario] =
     useState<ScenarioSelection>(initialScenario);
   const [scenarioText, setScenarioText] = useState("Будущий текст");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const loadScenario = async () => {
+      setIsLoading(true);
+
       try {
         const response = await generateWorkScenario(selectedScenario);
         setScenarioText(response.text);
@@ -24,6 +27,8 @@ export const useWorkScenario = () => {
         setScenarioText(
           "Не удалось загрузить сценарий. Попробуйте выбрать другой вариант.",
         );
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -45,6 +50,7 @@ export const useWorkScenario = () => {
   };
 
   return {
+    isLoading,
     scenarioText,
     getSelectedValue,
     handleOptionClick,

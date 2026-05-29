@@ -138,6 +138,11 @@
   box-shadow: 0 0 0 1px var(--color-primary-border-fade);
 }
 
+.option:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
 .group:nth-child(1) .optionActive {
   border-color: var(--color-primary-border);
   color: var(--color-primary);
@@ -208,6 +213,10 @@
   font-size: 0.95rem;
   font-weight: 500;
   line-height: 1.6;
+}
+
+.resultTextareaLoading {
+  color: var(--color-text-muted);
 }
 
 .resultStatuses {
