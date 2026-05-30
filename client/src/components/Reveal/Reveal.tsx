@@ -1,23 +1,10 @@
-import {
-  useEffect,
-  useRef,
-  useState,
-  type AnchorHTMLAttributes,
-  type ElementType,
-  type HTMLAttributes,
-  type ReactNode,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 
+import { REVEAL_TRANSITION_DURATION } from "./constants";
+import { useIsMobile } from "./hooks/useIsMobile";
 import styles from "./Reveal.module.scss";
-
-type RevealProps = HTMLAttributes<HTMLElement> &
-  AnchorHTMLAttributes<HTMLAnchorElement> & {
-    children: ReactNode;
-    as?: ElementType;
-    className?: string;
-    delay?: number;
-    threshold?: number;
-  };
+import type { RevealProps } from "./types";
+import { getRevealSettings } from "./utils";
 
 export const Reveal = ({
   children,
@@ -31,6 +18,12 @@ export const Reveal = ({
   const elementRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isDelayReset, setIsDelayReset] = useState(false);
+  const isMobile = useIsMobile();
+  const revealSettings = getRevealSettings({
+    delay,
+    isMobile,
+    threshold,
+  });
 
   useEffect(() => {
     const element = elementRef.current;
@@ -47,8 +40,8 @@ export const Reveal = ({
         }
       },
       {
-        threshold,
-        rootMargin: "0px 0px -10% 0px",
+        threshold: revealSettings.threshold,
+        rootMargin: revealSettings.rootMargin,
       },
     );
 
@@ -57,7 +50,7 @@ export const Reveal = ({
     return () => {
       observer.disconnect();
     };
-  }, [threshold]);
+  }, [revealSettings.rootMargin, revealSettings.threshold]);
 
   useEffect(() => {
     if (!isVisible) {
@@ -66,18 +59,21 @@ export const Reveal = ({
 
     const timeoutId = window.setTimeout(() => {
       setIsDelayReset(true);
-    }, delay + 650);
+    }, revealSettings.delay + REVEAL_TRANSITION_DURATION);
 
     return () => {
       window.clearTimeout(timeoutId);
     };
-  }, [delay, isVisible]);
+  }, [isVisible, revealSettings.delay]);
 
   return (
     <Component
       ref={elementRef}
       className={`${styles.reveal} ${isVisible ? styles.visible : ""} ${className ?? ""}`}
-      style={{ ...style, transitionDelay: isDelayReset ? "0ms" : `${delay}ms` }}
+      style={{
+        ...style,
+        transitionDelay: isDelayReset ? "0ms" : `${revealSettings.delay}ms`,
+      }}
       {...props}
     >
       {children}
