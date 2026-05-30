@@ -104,16 +104,37 @@
 
 @media (max-width: 1120px) {
   .hero {
+    grid-template-columns: minmax(0, 560px) minmax(360px, 420px);
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .hero > :last-child {
+    right: 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
     grid-template-columns: minmax(0, 1fr);
     justify-content: stretch;
     gap: 40px;
   }
 
   .info {
+    width: 100%;
     max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .content {
+    margin: 0 auto;
   }
 
   .hero > :last-child {
+    width: 100%;
+    max-width: 500px;
+    justify-self: center;
     right: 0;
   }
 }
