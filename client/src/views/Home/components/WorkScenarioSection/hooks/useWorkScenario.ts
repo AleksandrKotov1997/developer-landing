@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import { generateWorkScenario } from "@/api";
 
+import type { Language } from "@/features/language";
+
 import type { ScenarioGroupKey, ScenarioSelection } from "../types";
 
 const initialScenario: ScenarioSelection = {
@@ -10,10 +12,16 @@ const initialScenario: ScenarioSelection = {
   tone: "professional",
 };
 
-export const useWorkScenario = () => {
+export const useWorkScenario = ({
+  errorText,
+  language,
+}: {
+  errorText: string;
+  language: Language;
+}) => {
   const [selectedScenario, setSelectedScenario] =
     useState<ScenarioSelection>(initialScenario);
-  const [scenarioText, setScenarioText] = useState("Будущий текст");
+  const [scenarioText, setScenarioText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -21,19 +29,20 @@ export const useWorkScenario = () => {
       setIsLoading(true);
 
       try {
-        const response = await generateWorkScenario(selectedScenario);
+        const response = await generateWorkScenario({
+          ...selectedScenario,
+          language,
+        });
         setScenarioText(response.text);
       } catch {
-        setScenarioText(
-          "Не удалось загрузить сценарий. Попробуйте выбрать другой вариант.",
-        );
+        setScenarioText(errorText);
       } finally {
         setIsLoading(false);
       }
     };
 
     void loadScenario();
-  }, [selectedScenario]);
+  }, [errorText, language, selectedScenario]);
 
   const getSelectedValue = <K extends ScenarioGroupKey>(key: K) => {
     return selectedScenario[key];

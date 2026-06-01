@@ -1,4 +1,5 @@
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 640px) minmax(420px, 500px);
   align-items: center;
@@ -10,6 +11,13 @@
 .hero > :last-child {
   position: relative;
   right: 100px;
+}
+
+.languageToggle {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  z-index: 2;
 }
 
 .info {
@@ -121,6 +129,11 @@
     gap: 40px;
   }
 
+  .languageToggle {
+    top: 0;
+    right: 0;
+  }
+
   .info {
     width: 100%;
     max-width: 720px;
@@ -142,7 +155,12 @@
 @media (max-width: 760px) {
   .hero {
     gap: 32px;
-    padding: 48px 0 40px;
+    padding: 62px 0 40px;
+  }
+
+  .languageToggle {
+    top: 0;
+    right: 0;
   }
 
   .eyebrow {

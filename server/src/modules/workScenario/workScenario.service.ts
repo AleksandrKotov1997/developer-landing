@@ -7,9 +7,9 @@ import type {
 export class WorkScenarioService {
   generateScenario(payload: WorkScenarioPayload): WorkScenarioResponse {
     return {
-      text: workScenarioMessages[payload.taskType][payload.projectContext][
-        payload.tone
-      ],
+      text: workScenarioMessages[payload.language][payload.taskType][
+        payload.projectContext
+      ][payload.tone],
     };
   }
 }

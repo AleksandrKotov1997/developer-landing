@@ -8,33 +8,43 @@ import {
 
 import styles from "./ExperienceProofSection.module.scss";
 
-const proofCards = [
-  {
-    icon: LayoutIcon,
-    title: "Product UI",
-    description: "Tables, Forms, States",
-  },
+import { useLanguage } from "@/features/language";
+import { experienceProofContent } from "@/views/Home/content";
 
-  {
-    icon: ServerIcon,
-    title: "API Context",
-    description: "REST, Errors, Contracts",
-  },
-
-  {
-    icon: CheckSquareIcon,
-    title: "Validation",
-    description: "Zod, User Feedback",
-  },
-
-  {
-    icon: DatabaseIcon,
-    title: "Deploy Context",
-    description: "Vercel, Render, Supabase",
-  },
-];
+const proofCardIcons = {
+  productUi: LayoutIcon,
+  apiContext: ServerIcon,
+  validation: CheckSquareIcon,
+  deployContext: DatabaseIcon,
+};
 
 export const ExperienceProofSection = () => {
+  const { language } = useLanguage();
+  const content = experienceProofContent[language];
+
+  const proofCards = [
+    {
+      icon: proofCardIcons.productUi,
+      title: experienceProofContent.shared.cardTitles.productUi,
+      description: content.cardDescriptions.productUi,
+    },
+    {
+      icon: proofCardIcons.apiContext,
+      title: experienceProofContent.shared.cardTitles.apiContext,
+      description: content.cardDescriptions.apiContext,
+    },
+    {
+      icon: proofCardIcons.validation,
+      title: experienceProofContent.shared.cardTitles.validation,
+      description: content.cardDescriptions.validation,
+    },
+    {
+      icon: proofCardIcons.deployContext,
+      title: experienceProofContent.shared.cardTitles.deployContext,
+      description: content.cardDescriptions.deployContext,
+    },
+  ];
+
   return (
     <section className={styles.section}>
       <ul className={styles.list}>

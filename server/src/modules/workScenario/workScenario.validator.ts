@@ -9,4 +9,5 @@ export const workScenarioSchema = z.object({
   ]),
   projectContext: z.enum(["existingProject", "newFeature", "refactor"]),
   tone: z.enum(["professional", "friendly", "direct"]),
+  language: z.enum(["ru", "en"]),
 });

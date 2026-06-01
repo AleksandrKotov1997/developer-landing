@@ -1,38 +1,35 @@
+import { LayersIcon, TargetIcon } from "@/components/Icon/icons";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
-import { LayersIcon, TargetIcon } from "@/components/Icon/icons";
+import { useLanguage } from "@/features/language";
+import { aboutContent } from "@/views/Home/content";
 
 import styles from "./AboutSection.module.scss";
 
-const aboutCards = [
-  {
-    icon: LayersIcon,
-    title: "Опыт",
-    content:
-      "В коммерческой разработке я работал с админ-панелями, embed-страницами, таблицами, модальными окнами, drawer-сценариями и формами. Мне близки задачи, где интерфейс связан с реальной логикой: загрузкой данных, состояниями, валидацией и действиями пользователя. " +
-      "В таких задачах мне важно не только сверстать экран, но и понять, какие данные показывает интерфейс, где пользователь может ошибиться и какая обратная связь поможет ему двигаться дальше. " +
-      "Мне комфортно работать с интерфейсами, где нужно внимательно относиться к деталям: текстам ошибок, пустым состояниям, доступности действий и тому, как экран ведёт себя после ответа сервера.",
-  },
-  {
-    icon: TargetIcon,
-    title: "Направления",
-    items: [
-      "admin/data-driven интерфейсы",
-      "формы и валидация",
-      "таблицы, фильтры и пагинация",
-      "интеграция frontend с backend API",
-      "loading / success / error states",
-      "аккуратный рефакторинг существующего кода",
-    ],
-  },
-];
+const aboutCardIcons = {
+  experience: LayersIcon,
+  directions: TargetIcon,
+};
 
 export const AboutSection = () => {
+  const { language } = useLanguage();
+  const content = aboutContent[language];
+
+  const aboutCards = [
+    {
+      icon: aboutCardIcons.experience,
+      title: content.cards.experience.title,
+      content: content.cards.experience.content,
+    },
+    {
+      icon: aboutCardIcons.directions,
+      title: content.cards.directions.title,
+      items: content.cards.directions.items,
+    },
+  ];
+
   return (
-    <Section
-      title="Работаю с интерфейсами, где важны данные, формы и понятный пользовательский путь"
-      description="Мне близки задачи, где нужно не просто сверстать экран, а связать его с реальной логикой: загрузкой данных, действиями пользователя, ошибками и итоговым результатом."
-    >
+    <Section title={content.title} description={content.description}>
       <div className={styles.grid}>
         {aboutCards.map((card, index) => {
           const Icon = card.icon;

@@ -5,16 +5,14 @@ import type {
   WorkScenarioTone,
 } from "@/types";
 
-export type ScenarioSelection = WorkScenarioPayload;
+export type ScenarioSelection = Omit<WorkScenarioPayload, "language">;
 
 export type ScenarioGroupKey = keyof ScenarioSelection;
 
 export type ScenarioGroup<K extends ScenarioGroupKey> = {
   key: K;
-  title: string;
   options: Array<{
     value: ScenarioSelection[K];
-    label: string;
   }>;
 };
 
