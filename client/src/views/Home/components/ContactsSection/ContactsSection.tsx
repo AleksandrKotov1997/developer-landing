@@ -1,4 +1,3 @@
-import { Reveal } from "@/components/Reveal";
 import {
   FileTextIcon,
   GithubIcon,
@@ -6,7 +5,10 @@ import {
   PhoneIcon,
   SendIcon,
 } from "@/components/Icon/icons";
+import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
+import { useLanguage } from "@/features/language";
+import { contactsContent } from "@/views/Home/content";
 
 import styles from "./ContactsSection.module.scss";
 
@@ -20,53 +22,53 @@ type ContactCard = {
   download?: boolean;
 };
 
-const contactCards = [
-  {
-    icon: PhoneIcon,
-    label: "Phone",
-    value: "+7 902 674-78-64",
-    href: "tel:+79026747864",
-  },
-  {
-    icon: SendIcon,
-    label: "Telegram",
-    value: "@aleksandr_kotoff",
-    href: "https://t.me/aleksandr_kotoff",
-    target: "_blank",
-    rel: "noreferrer",
-  },
-  {
-    icon: GithubIcon,
-    label: "GitHub",
-    value: "github.com/AleksandrKotov1997",
-    href: "https://github.com/AleksandrKotov1997",
-    target: "_blank",
-    rel: "noreferrer",
-  },
-  {
-    icon: GitlabIcon,
-    label: "GitLab",
-    value: "gitlab.skillbox.ru/aleksandr_kotov_3",
-    href: "https://gitlab.skillbox.ru/aleksandr_kotov_3",
-    target: "_blank",
-    rel: "noreferrer",
-  },
-  {
-    icon: FileTextIcon,
-    label: "Resume",
-    value: "Download PDF",
-    href: "/resume.pdf",
-    download: true,
-  },
-] satisfies ContactCard[];
+const contactCardIcons = {
+  phone: PhoneIcon,
+  telegram: SendIcon,
+  github: GithubIcon,
+  gitlab: GitlabIcon,
+  resume: FileTextIcon,
+};
 
 export const ContactsSection = () => {
+  const { language } = useLanguage();
+  const content = contactsContent[language];
+
+  const contactCards: ContactCard[] = [
+    {
+      icon: contactCardIcons.phone,
+      label: content.cards.phone.label,
+      ...contactsContent.shared.cards.phone,
+    },
+    {
+      icon: contactCardIcons.telegram,
+      label: content.cards.telegram.label,
+      target: "_blank" as const,
+      rel: "noreferrer" as const,
+      ...contactsContent.shared.cards.telegram,
+    },
+    {
+      icon: contactCardIcons.github,
+      target: "_blank" as const,
+      rel: "noreferrer" as const,
+      ...contactsContent.shared.cards.github,
+    },
+    {
+      icon: contactCardIcons.gitlab,
+      target: "_blank" as const,
+      rel: "noreferrer" as const,
+      ...contactsContent.shared.cards.gitlab,
+    },
+    {
+      icon: contactCardIcons.resume,
+      download: true,
+      ...content.resumeCard,
+    },
+  ];
+
   return (
     <section className={styles.section} id="contact">
-      <Section
-        title="Контакты"
-        description="Готов обсудить возможности сотрудничества"
-      >
+      <Section title={content.title} description={content.description}>
         <div className={styles.content}>
           <div className={styles.grid}>
             {contactCards.map((card, index) => {
@@ -95,7 +97,7 @@ export const ContactsSection = () => {
 
           <div className={styles.status}>
             <span className={styles.statusDot} aria-hidden="true" />
-            <span>Open to React/TypeScript opportunities</span>
+            <span>{content.status}</span>
           </div>
         </div>
       </Section>

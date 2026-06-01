@@ -1,3 +1,5 @@
+import type { Language } from "@/features/language";
+
 export type WorkScenarioTaskType =
   | "adminUi"
   | "formsValidation"
@@ -15,6 +17,7 @@ export type WorkScenarioPayload = {
   taskType: WorkScenarioTaskType;
   projectContext: WorkScenarioProjectContext;
   tone: WorkScenarioTone;
+  language: Language;
 };
 
 export type WorkScenarioResponse = {

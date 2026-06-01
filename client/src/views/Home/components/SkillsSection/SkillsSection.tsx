@@ -1,61 +1,58 @@
-import { Reveal } from "@/components/Reveal";
 import {
   CloudIcon,
   CodeIcon2,
   LayoutIcon,
   ServerIcon,
 } from "@/components/Icon/icons";
-
+import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
+import { useLanguage } from "@/features/language";
+import { skillsContent } from "@/views/Home/content";
 
 import styles from "./SkillsSection.module.scss";
 
-const skillGroups = [
-  {
-    icon: CodeIcon2,
-    title: "Frontend",
-    items: ["React", "TypeScript", "Vite", "SCSS Modules", "Responsive UI"],
-  },
-  {
-    icon: LayoutIcon,
-    title: "Product UI",
-    items: [
-      "Forms",
-      "Tables",
-      "Filters",
-      "Pagination",
-      "Modals",
-      "Drawers",
-      "Loading / Error / Empty states",
-    ],
-  },
-  {
-    icon: ServerIcon,
-    title: "Backend",
-    items: ["Node.js", "Express", "Zod", "REST API", "Validation"],
-  },
-  {
-    icon: CloudIcon,
-    title: "Database / Deploy",
-    items: ["PostgreSQL", "Supabase", "Docker", "Vercel", "Render"],
-  },
-];
+const skillGroupIcons = {
+  frontend: CodeIcon2,
+  productUi: LayoutIcon,
+  backend: ServerIcon,
+  databaseDeploy: CloudIcon,
+};
 
-const skillLegendItems = [
-  "Frontend-focused",
-  "Backend context",
-  "Full deployment cycle",
-];
-
-const getItemsCountLabel = (count: number) =>
-  `${count} ${count === 1 ? "item" : "items"}`;
+const getItemsCountLabel = ({
+  count,
+  plural,
+  singular,
+}: {
+  count: number;
+  plural: string;
+  singular: string;
+}) => `${count} ${count === 1 ? singular : plural}`;
 
 export const SkillsSection = () => {
+  const { language } = useLanguage();
+  const content = skillsContent[language];
+
+  const skillGroups = [
+    {
+      icon: skillGroupIcons.frontend,
+      ...skillsContent.shared.groups.frontend,
+    },
+    {
+      icon: skillGroupIcons.productUi,
+      ...skillsContent.shared.groups.productUi,
+    },
+    {
+      icon: skillGroupIcons.backend,
+      ...skillsContent.shared.groups.backend,
+    },
+    {
+      icon: skillGroupIcons.databaseDeploy,
+      ...skillsContent.shared.groups.databaseDeploy,
+    },
+  ];
+
   return (
-    <Section
-      title="Навыки и стек"
-      description="Технологии и подходы, с которыми я работаю в frontend и fullstack-oriented задачах."
-    >
+    <Section title={content.title} description={content.description}>
       <ul className={styles.list}>
         {skillGroups.map((group, index) => {
           const Icon = group.icon;
@@ -70,7 +67,11 @@ export const SkillsSection = () => {
               <Icon className={styles.icon} aria-hidden="true" />
               <span className={styles.title}>{group.title}</span>
               <span className={styles.count}>
-                {getItemsCountLabel(group.items.length)}
+                {getItemsCountLabel({
+                  count: group.items.length,
+                  plural: content.itemCountLabel.plural,
+                  singular: content.itemCountLabel.singular,
+                })}
               </span>
               <ul className={styles.items}>
                 {group.items.map((item) => (
@@ -85,7 +86,7 @@ export const SkillsSection = () => {
       </ul>
 
       <ul className={styles.legend}>
-        {skillLegendItems.map((label) => (
+        {content.legendItems.map((label) => (
           <li key={label} className={styles.legendItem}>
             {label}
           </li>

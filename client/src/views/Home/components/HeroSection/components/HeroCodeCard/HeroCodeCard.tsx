@@ -1,7 +1,7 @@
 import styles from "./HeroCodeCard.module.scss";
 
 const profile = {
-  name: "Александр Котов",
+  name: "Aleksandr Kotov",
   role: "Frontend Engineer",
   frontend: ["React", "TypeScript", "TanStack Query"],
   backend: ["Node.js", "Express", "Zod"],

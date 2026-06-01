@@ -1,0 +1,77 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  width: fit-content;
+}
+
+.button {
+  position: relative;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 13px;
+  gap: 7px;
+  font-size: 0.76rem;
+  line-height: 1;
+}
+
+.buttonInactive {
+  background: color-mix(
+    in srgb,
+    var(--color-text-muted) 20%,
+    var(--color-surface)
+  );
+}
+
+.buttonInactive:hover:not(:disabled) {
+  background: color-mix(
+    in srgb,
+    var(--color-text-muted) 30%,
+    var(--color-surface)
+  );
+}
+
+.button:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 1px;
+  height: 18px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-text-muted) 44%, transparent);
+  transform: translateY(-50%);
+  content: "";
+}
+
+.flag {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  .root {
+    gap: 16px;
+  }
+
+  .button {
+    min-height: 30px;
+    padding: 0 9px;
+    gap: 6px;
+    font-size: 0.72rem;
+  }
+
+  .button:not(:last-child)::after {
+    right: -9px;
+    height: 16px;
+  }
+
+  .flag {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+  }
+}

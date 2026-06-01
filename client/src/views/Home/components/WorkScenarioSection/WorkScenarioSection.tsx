@@ -1,16 +1,19 @@
 import { useWorkScenario } from "./hooks/useWorkScenario";
-import {
-  badge,
-  panelHeading,
-  resultStatuses,
-  scenarioGroups,
-} from "./constants";
+import { badge, panelHeading, scenarioGroups } from "./constants";
+
+import { useLanguage } from "@/features/language";
+import { workScenarioContent } from "@/views/Home/content";
 
 import styles from "./WorkScenarioSection.module.scss";
 
 export const WorkScenarioSection = () => {
+  const { language } = useLanguage();
+  const content = workScenarioContent[language];
   const { isLoading, scenarioText, getSelectedValue, handleOptionClick } =
-    useWorkScenario();
+    useWorkScenario({
+      errorText: content.errorText,
+      language,
+    });
 
   const Icon = badge.icon;
   const PanelIcon = panelHeading.icon;
@@ -20,64 +23,72 @@ export const WorkScenarioSection = () => {
       <div className={styles.header}>
         <span className={styles.badge}>
           <Icon className={styles.badgeIcon} aria-hidden="true" />
-          {badge.label}
+          {workScenarioContent.shared.badgeLabel}
         </span>
 
-        <h2 className={styles.title}>Как я подхожу к задачам команды</h2>
+        <h2 className={styles.title}>{content.title}</h2>
 
-        <p className={styles.description}>
-          Выберите тип задачи и контекст проекта — я покажу, как могу
-          подключиться к такому сценарию и довести его до понятного результата.
-        </p>
+        <p className={styles.description}>{content.description}</p>
       </div>
 
       <div className={styles.panel}>
         <h3 className={styles.panelTitle}>
           <PanelIcon className={styles.panelTitleIcon} aria-hidden="true" />
-          {panelHeading.title}
+          {content.panelTitle}
         </h3>
 
         <div className={styles.groups}>
-          {scenarioGroups.map((group) => (
-            <div className={styles.group} key={group.title}>
-              <p className={styles.groupTitle}>{group.title}</p>
+          {scenarioGroups.map((group) => {
+            const groupContent: {
+              title: string;
+              options: Record<string, string>;
+            } = content.groups[group.key];
 
-              <div className={styles.options}>
-                {group.options.map((option) => {
-                  const isActive = getSelectedValue(group.key) === option.value;
+            return (
+              <div className={styles.group} key={group.key}>
+                <p className={styles.groupTitle}>{groupContent.title}</p>
 
-                  return (
-                    <button
-                      aria-pressed={isActive}
-                      className={`${styles.option} ${isActive ? styles.optionActive : ""}`}
-                      disabled={isLoading}
-                      key={option.value}
-                      type="button"
-                      onClick={() => handleOptionClick(group.key, option.value)}
-                    >
-                      {option.label}
-                    </button>
-                  );
-                })}
+                <div className={styles.options}>
+                  {group.options.map((option) => {
+                    const isActive =
+                      getSelectedValue(group.key) === option.value;
+                    const optionLabel = groupContent.options[option.value];
+
+                    return (
+                      <button
+                        aria-pressed={isActive}
+                        className={`${styles.option} ${isActive ? styles.optionActive : ""}`}
+                        disabled={isLoading}
+                        key={option.value}
+                        type="button"
+                        onClick={() =>
+                          handleOptionClick(group.key, option.value)
+                        }
+                      >
+                        {optionLabel}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className={styles.result}>
           <div className={styles.resultHeader}>
-            <h3 className={styles.resultTitle}>Результат выбора</h3>
+            <h3 className={styles.resultTitle}>{content.resultTitle}</h3>
           </div>
 
           <textarea
             aria-busy={isLoading}
             className={`${styles.resultTextarea} ${isLoading ? styles.resultTextareaLoading : ""}`}
             readOnly
-            value={isLoading ? "Идёт загрузка..." : scenarioText}
+            value={isLoading ? content.loadingText : scenarioText}
           />
 
           <ul className={styles.resultStatuses}>
-            {resultStatuses.map((status) => (
+            {workScenarioContent.shared.resultStatuses.map((status) => (
               <li className={styles.resultStatus} key={status}>
                 {status}
               </li>
