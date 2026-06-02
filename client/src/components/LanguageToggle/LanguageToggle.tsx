@@ -20,11 +20,13 @@ export const LanguageToggle = () => {
           <Button
             aria-label={`Switch language to ${option.label}`}
             aria-pressed={isActive}
-            className={`${styles.button} ${!isActive ? styles.buttonInactive : ""}`}
+            className={`${styles.button} ${
+              isActive ? styles.buttonActive : styles.buttonInactive
+            }`}
             key={option.value}
             onClick={() => setLanguage(option.value)}
             type="button"
-            variant={isActive ? "primary" : "secondary"}
+            variant="secondary"
           >
             <img
               alt=""

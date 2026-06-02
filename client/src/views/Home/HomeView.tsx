@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/Reveal";
 import {
+  Header,
   HeroSection,
   VisualProofSection,
   ExperienceProofSection,
@@ -15,7 +16,10 @@ import {
 export const HomeView = () => {
   return (
     <main>
-      <HeroSection />
+      <Header />
+      <Reveal>
+        <HeroSection />
+      </Reveal>
       <Reveal>
         <VisualProofSection />
       </Reveal>

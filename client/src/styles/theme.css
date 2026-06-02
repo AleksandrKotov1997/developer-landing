@@ -1,0 +1,150 @@
+:root,
+html[data-theme="dark"] {
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-bg: #0f172a;
+  --color-bg-soft: #111c31;
+  --color-surface: #172033;
+  --color-surface-muted: #1e293b;
+  --color-surface-hover: color-mix(
+    in srgb,
+    var(--color-text-muted) 18%,
+    var(--color-surface)
+  );
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-heading-soft: #e2e8f0;
+
+  --color-border: #334155;
+  --color-border-soft: rgba(148, 163, 184, 0.2);
+
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+  --color-primary-subtle: rgba(37, 99, 235, 0.2);
+  --color-primary-border: rgba(147, 197, 253, 0.42);
+  --color-primary-border-fade: rgba(147, 197, 253, 0.24);
+
+  --color-success: #4ade80;
+  --color-success-subtle: rgba(74, 222, 128, 0.1);
+  --color-success-border: rgba(74, 222, 128, 0.22);
+
+  --color-status-success-bg: rgba(74, 222, 128, 0.1);
+  --color-status-success-border: rgba(74, 222, 128, 0.24);
+  --color-status-success-text: #bbf7d0;
+  --color-status-success-dot: #86efac;
+
+  --color-dashboard-highlight: rgba(37, 99, 235, 0.2);
+  --color-dashboard-card: rgba(15, 23, 42, 0.38);
+  --color-dashboard-card-hover: rgba(37, 99, 235, 0.28);
+  --color-dashboard-highlight-hover: rgba(59, 130, 246, 0.32);
+
+  --color-code-control-close: #f87171;
+  --color-code-control-minimize: #fbbf24;
+  --color-code-control-expand: #4ade80;
+  --color-code-card-background: linear-gradient(
+    180deg,
+    #172033 0%,
+    #111827 100%
+  );
+  --color-code-editor-glow: rgba(96, 165, 250, 0.1);
+  --color-code-editor-tint: rgba(96, 165, 250, 0.08);
+  --color-code-background: rgba(15, 23, 42, 0.28);
+
+  --color-contact-phone: #4ade80;
+  --color-contact-phone-bg: rgba(74, 222, 128, 0.12);
+  --color-contact-telegram: #38bdf8;
+  --color-contact-telegram-bg: rgba(56, 189, 248, 0.12);
+  --color-contact-github: #f8fafc;
+  --color-contact-github-bg: rgba(248, 250, 252, 0.1);
+  --color-contact-gitlab: #fb923c;
+  --color-contact-gitlab-bg: rgba(251, 146, 60, 0.12);
+  --color-contact-resume: #60a5fa;
+  --color-contact-resume-bg: rgba(96, 165, 250, 0.12);
+
+  --color-accent-purple: #c084fc;
+
+  --shadow-card: 0 18px 54px rgba(0, 0, 0, 0.22);
+  --shadow-card-hover: 0 22px 46px rgba(0, 0, 0, 0.34);
+  --shadow-dashboard-hover: 0 8px 20px rgba(0, 0, 0, 0.18);
+  --shadow-primary: 0 16px 32px rgba(96, 165, 250, 0.18);
+  --shadow-primary-hover: 0 20px 42px rgba(96, 165, 250, 0.24);
+
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+
+  --layout-page-max-width: 1600px;
+}
+
+html[data-theme="light"] {
+  --color-bg: #fbfdff;
+  --color-bg-soft: #f1f6ff;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-surface-hover: color-mix(
+    in srgb,
+    var(--color-text-muted) 20%,
+    var(--color-surface)
+  );
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-text-heading-soft: #334155;
+
+  --color-border: #e2e8f0;
+  --color-border-soft: rgba(148, 163, 184, 0.24);
+
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-subtle: rgba(219, 234, 254, 0.42);
+  --color-primary-border: #bfdbfe;
+  --color-primary-border-fade: rgba(191, 219, 254, 0.55);
+
+  --color-success: #16a34a;
+  --color-success-subtle: rgba(22, 163, 74, 0.08);
+  --color-success-border: rgba(22, 163, 74, 0.18);
+
+  --color-status-success-bg: rgba(34, 197, 94, 0.08);
+  --color-status-success-border: rgba(34, 197, 94, 0.22);
+  --color-status-success-text: #166534;
+  --color-status-success-dot: #86efac;
+
+  --color-dashboard-highlight: rgba(219, 234, 254, 0.72);
+  --color-dashboard-card: rgba(255, 255, 255, 0.72);
+  --color-dashboard-card-hover: rgba(219, 234, 254, 0.48);
+  --color-dashboard-highlight-hover: rgba(191, 219, 254, 0.78);
+
+  --color-code-control-close: #ef4444;
+  --color-code-control-minimize: #f59e0b;
+  --color-code-control-expand: #22c55e;
+  --color-code-card-background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f8fbff 100%
+  );
+  --color-code-editor-glow: rgba(37, 99, 235, 0.08);
+  --color-code-editor-tint: rgba(37, 99, 235, 0.045);
+  --color-code-background: rgba(255, 255, 255, 0);
+
+  --color-contact-phone: #16a34a;
+  --color-contact-phone-bg: rgba(34, 197, 94, 0.12);
+  --color-contact-telegram: #229ed9;
+  --color-contact-telegram-bg: rgba(34, 158, 217, 0.12);
+  --color-contact-github: #24292f;
+  --color-contact-github-bg: rgba(36, 41, 47, 0.1);
+  --color-contact-gitlab: #fc6d26;
+  --color-contact-gitlab-bg: rgba(252, 109, 38, 0.12);
+  --color-contact-resume: #2563eb;
+  --color-contact-resume-bg: rgba(37, 99, 235, 0.12);
+
+  --color-accent-purple: #9934d3;
+
+  --shadow-card: 0 18px 54px rgba(15, 23, 42, 0.06);
+  --shadow-card-hover: 0 22px 46px rgba(15, 23, 42, 0.18);
+  --shadow-dashboard-hover: 0 8px 20px rgba(15, 23, 42, 0.04);
+  --shadow-primary: 0 16px 32px rgba(37, 99, 235, 0.22);
+  --shadow-primary-hover: 0 20px 42px rgba(37, 99, 235, 0.28);
+}

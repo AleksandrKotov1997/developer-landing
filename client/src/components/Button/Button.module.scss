@@ -39,16 +39,16 @@
 .primary {
   color: var(--color-surface);
   background: var(--color-primary);
-  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.22);
+  box-shadow: var(--shadow-primary);
 
   &:hover:not(:disabled) {
     background: var(--color-primary-hover);
-    box-shadow: 0 20px 42px rgba(37, 99, 235, 0.28);
+    box-shadow: var(--shadow-primary-hover);
   }
 }
 
 .secondary {
   &:hover:not(:disabled) {
-    background: var(--color-primary-subtle);
+    background: var(--color-surface-hover);
   }
 }
