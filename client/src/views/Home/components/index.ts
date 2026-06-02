@@ -1,3 +1,4 @@
+export * from "./Header";
 export * from "./HeroSection";
 export * from "./VisualProofSection";
 export * from "./ExperienceProofSection";

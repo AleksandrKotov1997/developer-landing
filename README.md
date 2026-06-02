@@ -29,6 +29,8 @@
 - backend endpoint для генерации текста сценария;
 - backend-валидация выбранных параметров через Zod;
 - scroll reveal анимации для секций и карточек;
+- переключение языка интерфейса RU / EN;
+- переключение светлой и тёмной темы с сохранением выбора в localStorage;
 - frontend-only контакты: телефон, Telegram, GitHub, GitLab и резюме PDF;
 - отдельный frontend и backend deploy.
 
@@ -40,6 +42,14 @@ developer-landing/
   server/   # Express backend API
 ```
 
+## Интерфейс
+
+Лендинг поддерживает переключение языка RU / EN. Тексты основных секций вынесены в content-структуру на frontend-стороне, чтобы интерфейс можно было расширять без изменения shared UI-компонентов.
+
+Также реализовано переключение светлой и тёмной темы. Тёмная тема используется по умолчанию, выбор пользователя сохраняется в `localStorage`.
+
+Для предотвращения вспышки неправильной темы при перезагрузке страницы в `index.html` добавлен небольшой inline-script, который применяет сохранённую тему до запуска React.
+
 ### Frontend
 
 ```txt
@@ -48,6 +58,8 @@ client/src/
   app/          # root app component
   components/   # shared UI components
   config/       # frontend env config
+  features/     # language and theme feature state
+  styles/       # fonts and theme tokens
   views/        # page-level views
   types.ts      # shared frontend types
 ```
@@ -183,7 +195,7 @@ Endpoint принимает выбранный тип задачи, контек
 Frontend задеплоен на Vercel:
 
 ```txt
-https://developer-landing-delta.vercel.app
+https://kotov-aleksandr.vercel.app
 ```
 
 Backend задеплоен на Render:

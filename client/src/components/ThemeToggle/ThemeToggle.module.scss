@@ -1,0 +1,97 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  width: fit-content;
+  padding: 2px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+}
+.button {
+  position: relative;
+  width: 54px;
+  min-width: 54px;
+  min-height: 32px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.buttonActive {
+  border-color: var(--color-primary-border-fade);
+  background: var(--color-surface);
+  box-shadow:
+    0 10px 22px color-mix(in srgb, var(--color-text-primary) 12%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--color-surface) 80%, transparent);
+}
+
+.buttonActive:hover:not(:disabled) {
+  background: var(--color-surface);
+}
+
+.buttonInactive {
+  background: transparent;
+}
+
+.buttonInactive:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.buttonActive .icon {
+  opacity: 1;
+  transform: scale(1.08);
+  filter: saturate(1.12) contrast(1.08)
+    drop-shadow(
+      0 2px 3px color-mix(in srgb, var(--color-text-primary) 16%, transparent)
+    );
+}
+
+.buttonInactive .icon {
+  opacity: 0.92;
+  transform: scale(0.98);
+  filter: saturate(0.96) contrast(1)
+    drop-shadow(
+      0 1px 1px color-mix(in srgb, var(--color-text-primary) 12%, transparent)
+    );
+}
+
+.buttonInactive:hover:not(:disabled) .icon {
+  opacity: 1;
+  transform: scale(1);
+  filter: saturate(1) contrast(1.02)
+    drop-shadow(
+      0 1px 2px color-mix(in srgb, var(--color-text-primary) 14%, transparent)
+    );
+}
+
+@media (max-width: 760px) {
+  .root {
+    gap: 2px;
+    padding: 2px;
+    border-radius: 15px;
+  }
+
+  .button {
+    width: 50px;
+    min-width: 50px;
+    min-height: 30px;
+  }
+
+  .icon {
+    width: 17px;
+    height: 17px;
+  }
+}

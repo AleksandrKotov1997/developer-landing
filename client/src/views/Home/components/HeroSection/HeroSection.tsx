@@ -1,5 +1,4 @@
 import { ButtonLink } from "@/components/Button";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { useLanguage } from "@/features/language";
 import { heroContent } from "@/views/Home/content";
 
@@ -14,12 +13,9 @@ export const HeroSection = () => {
 
   return (
     <section className={styles.hero}>
-      <div className={styles.languageToggle}>
-        <LanguageToggle />
-      </div>
       <div className={styles.info}>
-        <p className={styles.eyebrow}>{heroContent.shared.eyebrow}</p>
         <div className={styles.content}>
+          <p className={styles.eyebrow}>{heroContent.shared.eyebrow}</p>
           <h1 className={styles.title}>{content.name}</h1>
 
           <p className={styles.subtitle}>
