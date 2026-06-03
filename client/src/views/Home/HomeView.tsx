@@ -27,16 +27,16 @@ export const HomeView = () => {
         <ExperienceProofSection />
       </Reveal>
       <Reveal>
-        <AboutSection />
+        <SkillsSection />
       </Reveal>
       <Reveal>
-        <SkillsSection />
+        <ProjectsSection />
       </Reveal>
       <Reveal>
         <WorkflowSection />
       </Reveal>
       <Reveal threshold={0.08}>
-        <ProjectsSection />
+        <AboutSection />
       </Reveal>
       <Reveal>
         <WorkScenarioSection />

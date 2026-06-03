@@ -2,6 +2,8 @@ import type { Language, LanguageOption } from "./types";
 
 export const DEFAULT_LANGUAGE: Language = "ru";
 
+export const LANGUAGE_STORAGE_KEY = "developer-landing-language";
+
 export const LANGUAGE_OPTIONS: LanguageOption[] = [
   {
     value: "ru",

@@ -44,19 +44,21 @@ export type VisualProofLocalizedContent = {
 // ExperienceProofSection
 export type ExperienceProofSharedContent = {
   cardTitles: {
-    productUi: string;
-    apiContext: string;
-    validation: string;
-    deployContext: string;
+    commercialFrontend: string;
+    productDataUi: string;
+    frontendArchitecture: string;
+    apiValidationTesting: string;
   };
 };
 
 export type ExperienceProofLocalizedContent = {
+  title: string;
+  description: string;
   cardDescriptions: {
-    productUi: string;
-    apiContext: string;
-    validation: string;
-    deployContext: string;
+    commercialFrontend: string;
+    productDataUi: string;
+    frontendArchitecture: string;
+    apiValidationTesting: string;
   };
 };
 
@@ -125,11 +127,11 @@ export type ProjectsSharedContent = {
       title: string;
       tags: string[];
     };
-    commercialAdminUi: {
+    vinBackbone: {
       title: string;
       tags: string[];
     };
-    frontendApiIntegration: {
+    dealerIntelligence: {
       title: string;
       tags: string[];
     };
@@ -150,12 +152,12 @@ export type ProjectsLocalizedContent = {
       description: string;
       proof: string;
     };
-    commercialAdminUi: {
+    vinBackbone: {
       type: string;
       description: string;
       proof: string;
     };
-    frontendApiIntegration: {
+    dealerIntelligence: {
       type: string;
       description: string;
       proof: string;

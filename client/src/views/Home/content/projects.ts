@@ -15,100 +15,116 @@ export const projectsContent: SectionContent<
         tags: [
           "React",
           "TypeScript",
-          "SCSS Modules",
+          "Backend API",
           "Interactive UI",
-          "Responsive UI",
+          "Vitest",
+          "Production UX",
         ],
       },
-      commercialAdminUi: {
-        title: "Commercial Admin UI",
-        tags: ["Tables", "Filters", "Forms", "Modals", "API", "States"],
-      },
-      frontendApiIntegration: {
-        title: "Frontend + API Integration",
+      vinBackbone: {
+        title: "Vin Backbone",
         tags: [
-          "REST API",
-          "React Query",
-          "Validation",
-          "Errors",
-          "Typed Client",
+          "React",
+          "TypeScript",
+          "TanStack Query",
+          "Ant Design",
+          "DuckDB",
+          "API",
+        ],
+      },
+      dealerIntelligence: {
+        title: "Dealer Intelligence",
+        tags: [
+          "React",
+          "TypeScript",
+          "TanStack Query",
+          "Ant Design",
+          "Roles & Permissions",
+          "Embeds",
         ],
       },
       bookFlowBackendFoundations: {
         title: "BookFlow / Backend Foundations",
-        tags: ["Node.js", "Express", "Zod", "PostgreSQL", "API"],
+        tags: [
+          "Node.js",
+          "Express",
+          "PostgreSQL",
+          "Zod",
+          "REST API",
+          "Backend Architecture",
+        ],
       },
     },
   },
   ru: {
-    title: "Проекты и опыт",
+    title: "Проекты и кейсы",
     description:
-      "Практический опыт работы с продуктовыми интерфейсами и интеграциями.",
+      "В этих кейсах я показываю свой опыт с product UI, API-интеграциями, backend-контекстом и fullstack-oriented разработкой.",
     proofLabel: "Что это показывает:",
     projects: {
       developerLanding: {
-        type: "Personal portfolio project",
+        type: "Fullstack developer landing",
         description:
-          "В этом проекте я показываю, как собираю личную developer-визитку: продумываю позиционирование, структуру секций, адаптивную верстку и интерактивный блок рабочих сценариев.",
+          "В этой визитке я показываю свой подход к frontend и fullstack-oriented разработке: React и TypeScript, работа с UI-системой, мультиязычностью, темами, интерактивными сценариями, backend API и развитием продукта через новые функции.",
         proof:
-          "Показываю структуру frontend-проекта, работу с компонентами, визуальную аккуратность и умение доводить интерфейс до финального состояния",
+          "Показываю способность развивать проект от идеи до production-ready решения: проектирование интерфейсов, работа с данными, интеграция frontend и backend и последовательное развитие функциональности.",
       },
-      commercialAdminUi: {
-        type: "Commercial experience",
+      vinBackbone: {
+        type: "Commercial data & analytics platform",
         description:
-          "В коммерческих задачах я работал с admin/data-driven интерфейсами: таблицами, фильтрами, пагинацией, формами, модальными окнами, drawer-сценариями, пользовательскими состояниями и продуктовой логикой.",
+          "В Vin Backbone работаю над data-driven функциональностью: аналитикой, inventory-сценариями, бизнес-метриками, фильтрацией данных, payment request процессами и развитием существующего production-кода.",
         proof:
-          "Показываю опыт работы с production-интерфейсами, где важны данные, состояния, действия пользователя и аккуратная интеграция в существующий проект",
+          "Показываю опыт работы с большими объёмами данных, бизнес-процессами, аналитическими интерфейсами и развитием production-функциональности в существующем проекте.",
       },
-      frontendApiIntegration: {
-        type: "Fullstack-oriented frontend experience",
+      dealerIntelligence: {
+        type: "Commercial admin & access platform",
         description:
-          "Я связываю frontend с backend API: обрабатываю загрузку, ошибки, валидацию, успешные сценарии и проверяю, что интерфейс корректно реагирует на реальные ответы сервера.",
+          "В Dealer Intelligence работаю с admin-функциональностью и embed-сценариями: пользователями, ролями, rooftops/dealers, inventory pages, white-label темами и интеграцией в существующий production-код.",
         proof:
-          "Показываю понимание API-контрактов, frontend-состояний и сценариев, где пользователь должен получить понятную обратную связь",
+          "Показываю опыт развития admin-платформы, где важны access control, roles & permissions, product UI, embed-поведение и аккуратные изменения в existing codebase.",
       },
       bookFlowBackendFoundations: {
-        type: "Backend learning project",
+        type: "Fullstack booking platform",
         description:
-          "В учебном backend-проекте BookFlow я разбираю основы серверной части: routes, controllers, validators, models, работу с базой данных и форматирование API-ответов.",
+          "В BookFlow работаю над backend-частью платформы: проектированием API, routes, controllers, validators, models, взаимодействием с базой данных и развитием серверной архитектуры приложения.",
         proof:
-          "Показываю backend-контекст, который помогает мне лучше понимать API, ограничения сервера и связку frontend с данными",
+          "Показываю опыт работы с backend-контекстом, API-контрактами, валидацией данных, архитектурой приложения и взаимодействием между frontend и серверной частью.",
       },
     },
   },
   en: {
-    title: "Projects and experience",
+    title: "Projects and case studies",
     description:
-      "Practical experience with product interfaces and integrations.",
+      "In these projects, I show my experience with product UI, API integrations, backend context, and fullstack-oriented development.",
     proofLabel: "What this shows:",
     projects: {
       developerLanding: {
-        type: "Personal portfolio project",
+        type: "Fullstack developer landing",
         description:
-          "In this project, I show how I build a personal developer landing page: defining positioning, structuring sections, creating responsive layouts, and adding an interactive work-scenario block.",
+          "In this landing, I show my approach to frontend and fullstack-oriented development: React and TypeScript, UI system work, multilingual content, themes, interactive scenarios, backend API, and product development through new features.",
         proof:
-          "Shows frontend project structure, component work, visual polish, and the ability to bring an interface to a finished state",
+          "I show my ability to grow a project from an idea into a production-ready solution: interface design, data work, frontend/backend integration, and continuous feature development.",
       },
-      commercialAdminUi: {
-        type: "Commercial experience",
+      vinBackbone: {
+        type: "Commercial data & analytics platform",
         description:
-          "In commercial tasks, I worked with admin and data-driven interfaces: tables, filters, pagination, forms, modals, drawer-based flows, user states, and product logic.",
+          "In Vin Backbone, I work on data-driven functionality: analytics, inventory workflows, business metrics, data filtering, payment request processes, and evolution of an existing production codebase.",
         proof:
-          "Shows experience with production interfaces where data, states, user actions, and careful integration into an existing project matter",
+          "Through this project, I show experience working with large data sets, business workflows, analytics interfaces, and production feature development in an existing codebase.",
       },
-      frontendApiIntegration: {
-        type: "Fullstack-oriented frontend experience",
+      dealerIntelligence: {
+        type: "Commercial admin & access platform",
         description:
-          "I connect frontend interfaces with backend APIs: handling loading, errors, validation, successful flows, and checking that the UI responds correctly to real server responses.",
+          "In Dealer Intelligence, I work with admin functionality and embed-based flows: users, roles, rooftops/dealers, inventory pages, white-label themes, and integration into an existing production codebase.",
         proof:
-          "Shows understanding of API contracts, frontend states, and scenarios where the user needs clear feedback",
+          "I show experience developing an admin platform where access control, roles & permissions, product UI, embed behavior, and careful changes in an existing codebase matter.",
       },
       bookFlowBackendFoundations: {
-        type: "Backend learning project",
+        type: "Fullstack booking platform",
         description:
-          "In the BookFlow backend learning project, I work through backend fundamentals: routes, controllers, validators, models, database interaction, and API response formatting.",
+          "In BookFlow, I work on the backend side of the platform: API design, routes, controllers, validators, models, database interaction, and development of the application's server architecture.",
         proof:
-          "Shows backend context that helps me better understand APIs, server constraints, and how frontend connects with data",
+          "I show experience with backend context, API contracts, data validation, application architecture, and interaction between frontend and server-side functionality.",
       },
     },
   },
