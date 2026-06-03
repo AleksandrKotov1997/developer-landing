@@ -7,8 +7,8 @@ import styles from "./ProjectsSection.module.scss";
 
 const projectKeys = [
   "developerLanding",
-  "commercialAdminUi",
-  "frontendApiIntegration",
+  "vinBackbone",
+  "dealerIntelligence",
   "bookFlowBackendFoundations",
 ] as const;
 

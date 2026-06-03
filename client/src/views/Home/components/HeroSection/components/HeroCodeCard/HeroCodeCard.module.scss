@@ -2,7 +2,7 @@
   width: min(100%, 500px);
   min-height: 0;
   border: 1px solid var(--color-border);
-  border-radius: 28px;
+  border-radius: var(--radius-5xl);
   background: var(--color-code-card-background);
   box-shadow: var(--shadow-card);
   overflow: hidden;
@@ -28,7 +28,7 @@
 .controls span {
   width: 9px;
   height: 9px;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
 }
 
 .controls span:nth-child(1) {

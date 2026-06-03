@@ -25,7 +25,7 @@
   gap: 8px;
   min-height: 136px;
   padding: 22px 24px;
-  border-radius: 24px;
+  border-radius: var(--radius-4xl);
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
   text-decoration: none;
@@ -50,7 +50,7 @@
   width: 40px;
   height: 40px;
   margin-bottom: 2px;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   background: var(--contact-icon-bg);
   color: var(--contact-icon-color);
 }
@@ -109,7 +109,7 @@
   gap: 10px;
   padding: 10px 18px;
   border: 1px solid var(--color-status-success-border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--color-status-success-bg);
   color: var(--color-status-success-text);
   font-size: 14px;
@@ -121,7 +121,7 @@
   flex: 0 0 auto;
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   background: var(--color-status-success-dot);
 }
 

@@ -4,7 +4,7 @@ import { createRoot } from "react-dom/client";
 import { LanguageProvider } from "@/features/language";
 import { ThemeProvider } from "@/features/theme";
 
-import "./index.css";
+import "./global.css";
 import { App } from "./app/App";
 
 createRoot(document.getElementById("root")!).render(

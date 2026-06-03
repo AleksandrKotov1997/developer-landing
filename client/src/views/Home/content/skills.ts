@@ -12,39 +12,63 @@ export const skillsContent: SectionContent<
     groups: {
       frontend: {
         title: "Frontend",
-        items: ["React", "TypeScript", "Vite", "SCSS Modules", "Responsive UI"],
+        items: [
+          "React",
+          "TypeScript",
+          "TanStack Query",
+          "Inertia.js",
+          "Vite",
+          "SCSS Modules",
+          "Tailwind CSS",
+        ],
       },
       productUi: {
-        title: "Product UI",
+        title: "Product Engineering",
         items: [
+          "Ant Design",
           "Forms",
           "Tables",
           "Filters",
           "Pagination",
           "Modals",
           "Drawers",
+          "Roles & Permissions",
           "Loading / Error / Empty states",
         ],
       },
       backend: {
-        title: "Backend",
-        items: ["Node.js", "Express", "Zod", "REST API", "Validation"],
+        title: "Backend & Validation",
+        items: [
+          "Node.js",
+          "Express",
+          "AdonisJS",
+          "REST API",
+          "API Integration",
+          "Zod",
+          "Validation",
+        ],
       },
       databaseDeploy: {
-        title: "Database / Deploy",
-        items: ["PostgreSQL", "Supabase", "Docker", "Vercel", "Render"],
+        title: "Data, Testing & Delivery",
+        items: [
+          "PostgreSQL",
+          "Supabase",
+          "Docker",
+          "Git",
+          "CI/CD",
+          "Vitest",
+          "React Testing Library",
+          "Vercel",
+          "Render",
+        ],
       },
     },
   },
   ru: {
     title: "Навыки и стек",
     description:
-      "Технологии и подходы, с которыми я работаю в frontend и fullstack-oriented задачах.",
-    legendItems: [
-      "Frontend-focused",
-      "Backend context",
-      "Full deployment cycle",
-    ],
+      "Технологии, инструменты и production-практики, которые я использую в frontend и fullstack-oriented задачах.",
+    legendItems: ["Frontend-focused", "Backend context", "Testing & delivery"],
     itemCountLabel: {
       singular: "навык",
       plural: "навыков",
@@ -53,12 +77,8 @@ export const skillsContent: SectionContent<
   en: {
     title: "Skills and stack",
     description:
-      "Technologies and practices I use in frontend and fullstack-oriented tasks.",
-    legendItems: [
-      "Frontend-focused",
-      "Backend context",
-      "Full deployment cycle",
-    ],
+      "Technologies, tools, and production practices I use in frontend and fullstack-oriented tasks.",
+    legendItems: ["Frontend-focused", "Backend context", "Testing & delivery"],
     itemCountLabel: {
       singular: "item",
       plural: "items",

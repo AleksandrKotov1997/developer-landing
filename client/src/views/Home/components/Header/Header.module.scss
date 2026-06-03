@@ -11,7 +11,7 @@
   width: fit-content;
   padding: 8px 10px;
   border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
-  border-radius: 18px;
+  border-radius: var(--radius-2xl);
   background: color-mix(
     in srgb,
     var(--color-surface) 82%,
@@ -31,7 +31,7 @@
   right: -10px;
   width: 1px;
   height: 22px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--color-text-muted) 34%, transparent);
   transform: translateY(-50%);
   content: "";
@@ -45,7 +45,7 @@
   .controls {
     gap: 16px;
     padding: 7px 8px;
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
   }
 
   .controls > :first-child::after {

@@ -1,0 +1,18 @@
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --radius-3xs: 3px;
+  --radius-xs: 10px;
+  --radius-sm: 13px;
+  --radius-md: 14px;
+  --radius-lg: 15px;
+  --radius-xl: 16px;
+  --radius-2xl: 18px;
+  --radius-3xl: 22px;
+  --radius-4xl: 24px;
+  --radius-5xl: 28px;
+  --radius-pill: 999px;
+  --radius-round: 50%;
+
+  --layout-page-max-width: 1600px;
+}

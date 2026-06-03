@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import styles from "./Section.module.scss";
 
 type Props = {
-  eyebrow?: string;
   title: string;
   description?: string;
   children: ReactNode;
