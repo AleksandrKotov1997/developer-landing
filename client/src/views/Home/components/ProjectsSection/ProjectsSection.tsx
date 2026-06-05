@@ -1,7 +1,10 @@
+import NiceModal from "@ebay/nice-modal-react";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { useLanguage } from "@/features/language";
+import type { ProjectCaseSlug } from "@/types";
 import { projectsContent } from "@/views/Home/content";
+import { ProjectCaseModal } from "./components/ProjectCaseModal";
 
 import styles from "./ProjectsSection.module.scss";
 
@@ -12,6 +15,13 @@ const projectKeys = [
   "bookFlowBackendFoundations",
 ] as const;
 
+const projectCaseSlugs = {
+  developerLanding: "developer-landing",
+  vinBackbone: "vin-backbone",
+  dealerIntelligence: "dealer-intelligence",
+  bookFlowBackendFoundations: "bookflow",
+} satisfies Record<(typeof projectKeys)[number], ProjectCaseSlug>;
+
 export const ProjectsSection = () => {
   const { language } = useLanguage();
   const content = projectsContent[language];
@@ -19,7 +29,15 @@ export const ProjectsSection = () => {
   const projects = projectKeys.map((key) => ({
     ...projectsContent.shared.projects[key],
     ...content.projects[key],
+    slug: projectCaseSlugs[key],
   }));
+
+  const handleOpenProjectCase = (slug: ProjectCaseSlug) => {
+    NiceModal.show(ProjectCaseModal, {
+      language,
+      slug,
+    });
+  };
 
   return (
     <div id="projects">
@@ -52,6 +70,14 @@ export const ProjectsSection = () => {
                   <p className={styles.proofLabel}>{content.proofLabel}</p>
                   <p className={styles.proofText}>{project.proof}</p>
                 </div>
+                <button
+                  className={styles.detailsAction}
+                  type="button"
+                  onClick={() => handleOpenProjectCase(project.slug)}
+                >
+                  {content.detailsAction}
+                  <span aria-hidden="true">→</span>
+                </button>
               </div>
             </Reveal>
           ))}

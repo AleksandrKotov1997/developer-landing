@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 
 import { workScenarioRouter } from "./modules/workScenario/index.js";
+import { projectCasesRouter } from "./modules/projectCases/index.js";
 import { env } from "./shared/config/env.js";
 import { errorHandler } from "./shared/errors/errorHandler.js";
 
@@ -23,5 +24,6 @@ app.get("/api/health", (_request, response) => {
 });
 
 app.use("/api/work-scenario", workScenarioRouter);
+app.use("/api/project-cases", projectCasesRouter);
 
 app.use(errorHandler);
