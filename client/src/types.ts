@@ -24,6 +24,28 @@ export type WorkScenarioResponse = {
   text: string;
 };
 
+export type ProjectCaseSlug =
+  | "developer-landing"
+  | "vin-backbone"
+  | "dealer-intelligence"
+  | "bookflow";
+
+export type ProjectCaseDetailsResponse = {
+  slug: ProjectCaseSlug;
+  title: string;
+  type: string;
+  role: string;
+  context: string[];
+  responsibilities: string[];
+  engineeringFocus: string[];
+  result: string;
+};
+
+export type ProjectCaseDetailsPayload = {
+  language: Language;
+  slug: ProjectCaseSlug;
+};
+
 export type ApiErrorResponse = {
   message: string;
   errors?: unknown;

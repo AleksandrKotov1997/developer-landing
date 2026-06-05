@@ -142,10 +142,24 @@ export type ProjectsSharedContent = {
   };
 };
 
+// ProjectCaseModal
+export type ProjectCaseModalContent = {
+  closeLabel: string;
+  loadingText: string;
+  errorText: string;
+  roleLabel: string;
+  contextTitle: string;
+  responsibilitiesTitle: string;
+  engineeringFocusTitle: string;
+  resultTitle: string;
+};
+
 export type ProjectsLocalizedContent = {
   title: string;
   description: string;
   proofLabel: string;
+  detailsAction: string;
+  caseModal: ProjectCaseModalContent;
   projects: {
     developerLanding: {
       type: string;

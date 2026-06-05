@@ -58,6 +58,7 @@
 
 .body {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 14px;
   padding: 16px 22px 22px;
@@ -122,6 +123,69 @@
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.5;
+}
+
+.detailsAction {
+  align-self: flex-start;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.detailsAction:focus-visible {
+  outline: 2px solid var(--color-primary-border-fade);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.detailsAction:hover {
+  color: var(--color-primary-hover);
+  transform: translateX(2px);
+}
+
+.card:nth-child(1) .detailsAction {
+  color: var(--color-primary);
+}
+
+.card:nth-child(1) .detailsAction:hover {
+  color: var(--color-primary-hover);
+}
+
+.card:nth-child(2) .detailsAction {
+  color: var(--color-primary-hover);
+}
+
+.card:nth-child(2) .detailsAction:hover {
+  color: var(--color-primary);
+}
+
+.card:nth-child(3) .detailsAction {
+  color: var(--color-accent-purple);
+}
+
+.card:nth-child(3) .detailsAction:hover {
+  color: var(--color-primary-hover);
+}
+
+.card:nth-child(4) .detailsAction {
+  color: var(--color-text-primary);
+}
+
+.card:nth-child(4) .detailsAction:hover {
+  color: var(--color-primary-hover);
 }
 
 .type {

@@ -26,6 +26,7 @@
 - адаптивный лендинг-визитка;
 - секции с опытом, навыками, workflow, проектами и контактами;
 - интерактивный блок Work Scenario;
+- модальное окно с деталями проектов и backend-driven case study данными;
 - backend endpoint для генерации текста сценария;
 - backend-валидация выбранных параметров через Zod;
 - scroll reveal анимации для секций и карточек;
@@ -70,6 +71,7 @@ client/src/
 server/src/
   modules/
     workScenario/  # scenario text API module
+    projectCases/  # project case details API module
   shared/
     config/        # env config
     errors/        # API error handling
@@ -188,6 +190,23 @@ Endpoint принимает выбранный тип задачи, контек
   "projectContext": "existingProject",
   "tone": "professional"
 }
+```
+
+### Project Cases
+
+```txt
+GET /api/project-cases/:slug?language=ru|en
+```
+
+Endpoint возвращает подробности выбранного проекта для модального окна Projects section. Данные кейсов хранятся на backend, а UI-подписи модалки остаются на frontend в content-структуре.
+
+Поддерживаемые slug:
+
+```txt
+developer-landing
+vin-backbone
+dealer-intelligence
+bookflow
 ```
 
 ## Деплой

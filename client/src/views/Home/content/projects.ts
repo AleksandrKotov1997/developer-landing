@@ -61,6 +61,17 @@ export const projectsContent: SectionContent<
     description:
       "В этих кейсах я показываю свой опыт с product UI, API-интеграциями, backend-контекстом и fullstack-oriented разработкой.",
     proofLabel: "Что это показывает:",
+    detailsAction: "Смотреть детали",
+    caseModal: {
+      closeLabel: "Закрыть детали проекта",
+      loadingText: "Загружаю детали проекта...",
+      errorText: "Не удалось загрузить детали проекта",
+      roleLabel: "Роль",
+      contextTitle: "Контекст",
+      responsibilitiesTitle: "Что делал",
+      engineeringFocusTitle: "Инженерный фокус",
+      resultTitle: "Результат",
+    },
     projects: {
       developerLanding: {
         type: "Fullstack developer landing",
@@ -97,6 +108,17 @@ export const projectsContent: SectionContent<
     description:
       "In these projects, I show my experience with product UI, API integrations, backend context, and fullstack-oriented development.",
     proofLabel: "What this shows:",
+    detailsAction: "View details",
+    caseModal: {
+      closeLabel: "Close project details",
+      loadingText: "Loading project details...",
+      errorText: "Failed to load project details",
+      roleLabel: "Role",
+      contextTitle: "Context",
+      responsibilitiesTitle: "What I did",
+      engineeringFocusTitle: "Engineering focus",
+      resultTitle: "Result",
+    },
     projects: {
       developerLanding: {
         type: "Fullstack developer landing",
