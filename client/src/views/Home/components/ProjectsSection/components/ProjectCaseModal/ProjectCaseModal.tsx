@@ -20,7 +20,7 @@ export const ProjectCaseModal = NiceModal.create(
       slug,
       language,
     });
-    const { closeButtonRef, handleClose, isClosing, isVisible } =
+    const { closeButtonRef, handleClose, isClosing, isVisible, modalRef } =
       useProjectCaseModalBehavior();
     const labels = projectsContent[language].caseModal;
 
@@ -36,6 +36,7 @@ export const ProjectCaseModal = NiceModal.create(
       >
         <section
           aria-modal="true"
+          ref={modalRef}
           className={styles.modal}
           role="dialog"
           onClick={(event) => event.stopPropagation()}
