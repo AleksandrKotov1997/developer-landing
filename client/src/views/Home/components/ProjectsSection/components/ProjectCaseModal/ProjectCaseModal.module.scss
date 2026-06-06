@@ -25,6 +25,9 @@
   max-height: min(720px, calc(100dvh - 48px));
   overflow: auto;
   overscroll-behavior: contain;
+  scrollbar-color: color-mix(in srgb, var(--color-primary) 42%, transparent)
+    transparent;
+  scrollbar-width: thin;
   padding: 32px;
   border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-3xl);
@@ -37,6 +40,26 @@
     var(--shadow-card-hover),
     0 28px 80px color-mix(in srgb, var(--color-primary) 18%, transparent);
   animation: modalEnter 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-primary) 42%, transparent);
+  background-clip: content-box;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-primary) 58%, transparent);
+  background-clip: content-box;
 }
 
 .modal::before {
