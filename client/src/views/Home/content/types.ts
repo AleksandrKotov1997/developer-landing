@@ -41,25 +41,34 @@ export type VisualProofLocalizedContent = {
   stackItems: string[];
 };
 
-// ExperienceProofSection
-export type ExperienceProofSharedContent = {
-  cardTitles: {
-    commercialFrontend: string;
-    productDataUi: string;
-    frontendArchitecture: string;
-    apiValidationTesting: string;
-  };
+// WorkExperienceSection
+export type WorkExperienceCardId =
+  | "automotiveIntelligence"
+  | "paymentSystem"
+  | "freelance";
+
+export type WorkExperienceSharedCard = {
+  id: WorkExperienceCardId;
+  company: string;
+  role: string;
+  stack: string[];
 };
 
-export type ExperienceProofLocalizedContent = {
+export type WorkExperienceLocalizedCard = {
+  period: string;
+  duration: string;
+  description: string;
+  highlights: string[];
+};
+
+export type WorkExperienceSharedContent = {
+  cards: WorkExperienceSharedCard[];
+};
+
+export type WorkExperienceLocalizedContent = {
   title: string;
   description: string;
-  cardDescriptions: {
-    commercialFrontend: string;
-    productDataUi: string;
-    frontendArchitecture: string;
-    apiValidationTesting: string;
-  };
+  cards: Record<WorkExperienceCardId, WorkExperienceLocalizedCard>;
 };
 
 // AboutSection
@@ -79,35 +88,15 @@ export type AboutLocalizedContent = {
 };
 
 // SkillsSection
+export type SkillsTechnologyTone = "frontend" | "backend" | "ui";
+
 export type SkillsSharedContent = {
-  groups: {
-    frontend: {
-      title: string;
-      items: string[];
-    };
-    productUi: {
-      title: string;
-      items: string[];
-    };
-    backend: {
-      title: string;
-      items: string[];
-    };
-    databaseDeploy: {
-      title: string;
-      items: string[];
-    };
-  };
+  technologies: Record<SkillsTechnologyTone, string[]>;
 };
 
 export type SkillsLocalizedContent = {
   title: string;
   description: string;
-  legendItems: string[];
-  itemCountLabel: {
-    singular: string;
-    plural: string;
-  };
 };
 
 // WorkflowSection
@@ -125,18 +114,22 @@ export type ProjectsSharedContent = {
   projects: {
     developerLanding: {
       title: string;
+      type: string;
       tags: string[];
     };
     vinBackbone: {
       title: string;
+      type: string;
       tags: string[];
     };
     dealerIntelligence: {
       title: string;
+      type: string;
       tags: string[];
     };
     bookFlowBackendFoundations: {
       title: string;
+      type: string;
       tags: string[];
     };
   };
@@ -162,22 +155,18 @@ export type ProjectsLocalizedContent = {
   caseModal: ProjectCaseModalContent;
   projects: {
     developerLanding: {
-      type: string;
       description: string;
       proof: string;
     };
     vinBackbone: {
-      type: string;
       description: string;
       proof: string;
     };
     dealerIntelligence: {
-      type: string;
       description: string;
       proof: string;
     };
     bookFlowBackendFoundations: {
-      type: string;
       description: string;
       proof: string;
     };

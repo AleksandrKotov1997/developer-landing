@@ -12,6 +12,7 @@ export const projectsContent: SectionContent<
     projects: {
       developerLanding: {
         title: "Developer Landing",
+        type: "Personal fullstack product",
         tags: [
           "React",
           "TypeScript",
@@ -22,18 +23,20 @@ export const projectsContent: SectionContent<
         ],
       },
       vinBackbone: {
-        title: "Vin Backbone",
+        title: "Payment System Case (NDA)",
+        type: "Commercial payment platform",
         tags: [
           "React",
           "TypeScript",
           "TanStack Query",
           "Ant Design",
-          "DuckDB",
+          "SWR",
           "API",
         ],
       },
       dealerIntelligence: {
-        title: "Dealer Intelligence",
+        title: "Automotive DMS Case (NDA)",
+        type: "Commercial automotive DMS",
         tags: [
           "React",
           "TypeScript",
@@ -44,14 +47,15 @@ export const projectsContent: SectionContent<
         ],
       },
       bookFlowBackendFoundations: {
-        title: "BookFlow / Backend Foundations",
+        title: "BookFlow Booking Platform",
+        type: "Commercial booking platform",
         tags: [
-          "Node.js",
-          "Express",
-          "PostgreSQL",
+          "Next.js",
+          "Supabase",
           "Zod",
           "REST API",
-          "Backend Architecture",
+          "Ant Design",
+          "CSS Modules",
         ],
       },
     },
@@ -74,32 +78,28 @@ export const projectsContent: SectionContent<
     },
     projects: {
       developerLanding: {
-        type: "Fullstack developer landing",
         description:
           "В этой визитке я показываю свой подход к frontend и fullstack-oriented разработке: React и TypeScript, работа с UI-системой, мультиязычностью, темами, интерактивными сценариями, backend API и развитием продукта через новые функции.",
         proof:
           "Показываю способность развивать проект от идеи до production-ready решения: проектирование интерфейсов, работа с данными, интеграция frontend и backend и последовательное развитие функциональности.",
       },
       vinBackbone: {
-        type: "Commercial data & analytics platform",
         description:
-          "В Vin Backbone работаю над data-driven функциональностью: аналитикой, inventory-сценариями, бизнес-метриками, фильтрацией данных, payment request процессами и развитием существующего production-кода.",
+          "В этом кейсе я работаю над функциональностью платёжной системы: admin-экранами, таблицами, фильтрацией данных, бизнес-сценариями, payment request процессами и развитием существующего production-кода.",
         proof:
-          "Показываю опыт работы с большими объёмами данных, бизнес-процессами, аналитическими интерфейсами и развитием production-функциональности в существующем проекте.",
+          "Показываю опыт работы с коммерческими бизнес-процессами, платёжными сценариями, admin UI, API-интеграциями и аккуратным развитием production-функциональности в существующем проекте.",
       },
       dealerIntelligence: {
-        type: "Commercial admin & access platform",
         description:
-          "В Dealer Intelligence работаю с admin-функциональностью и embed-сценариями: пользователями, ролями, rooftops/dealers, inventory pages, white-label темами и интеграцией в существующий production-код.",
+          "В этом кейсе я работаю с DMS/admin-функциональностью: пользователями, ролями, дилерскими сущностями, inventory pages, white-label темами, embed-сценариями и интеграцией в существующий production-код.",
         proof:
-          "Показываю опыт развития admin-платформы, где важны access control, roles & permissions, product UI, embed-поведение и аккуратные изменения в existing codebase.",
+          "Показываю опыт развития automotive admin-платформы, где важны access control, roles & permissions, product UI, embed-поведение и аккуратные изменения в existing codebase.",
       },
       bookFlowBackendFoundations: {
-        type: "Fullstack booking platform",
         description:
-          "В BookFlow работаю над backend-частью платформы: проектированием API, routes, controllers, validators, models, взаимодействием с базой данных и развитием серверной архитектуры приложения.",
+          "В этом freelance-кейсе я работаю над fullstack-сценарием записи на beauty-услуги: лендингом, понятным пользовательским путём, формой заявки, базовой валидацией и backend-основой для обработки записи.",
         proof:
-          "Показываю опыт работы с backend-контекстом, API-контрактами, валидацией данных, архитектурой приложения и взаимодействием между frontend и серверной частью.",
+          "Показываю опыт freelance-разработки, где frontend и backend работают как один сценарий: презентация услуги, CTA, обработка заявки, API/data flow и подготовка проекта к развитию booking-системы.",
       },
     },
   },
@@ -121,32 +121,28 @@ export const projectsContent: SectionContent<
     },
     projects: {
       developerLanding: {
-        type: "Fullstack developer landing",
         description:
           "In this landing, I show my approach to frontend and fullstack-oriented development: React and TypeScript, UI system work, multilingual content, themes, interactive scenarios, backend API, and product development through new features.",
         proof:
           "I show my ability to grow a project from an idea into a production-ready solution: interface design, data work, frontend/backend integration, and continuous feature development.",
       },
       vinBackbone: {
-        type: "Commercial data & analytics platform",
         description:
-          "In Vin Backbone, I work on data-driven functionality: analytics, inventory workflows, business metrics, data filtering, payment request processes, and evolution of an existing production codebase.",
+          "In this case, I work on payment system functionality: admin screens, tables, data filtering, business workflows, payment request processes, and evolution of an existing production codebase.",
         proof:
-          "Through this project, I show experience working with large data sets, business workflows, analytics interfaces, and production feature development in an existing codebase.",
+          "Through this case, I show experience with commercial business workflows, payment scenarios, admin UI, API integrations, and careful production feature development in an existing project.",
       },
       dealerIntelligence: {
-        type: "Commercial admin & access platform",
         description:
-          "In Dealer Intelligence, I work with admin functionality and embed-based flows: users, roles, rooftops/dealers, inventory pages, white-label themes, and integration into an existing production codebase.",
+          "In this case, I work with DMS/admin functionality: users, roles, dealer-related entities, inventory pages, white-label themes, embed-based flows, and integration into an existing production codebase.",
         proof:
-          "I show experience developing an admin platform where access control, roles & permissions, product UI, embed behavior, and careful changes in an existing codebase matter.",
+          "I show experience developing an automotive admin platform where access control, roles & permissions, product UI, embed behavior, and careful changes in an existing codebase matter.",
       },
       bookFlowBackendFoundations: {
-        type: "Fullstack booking platform",
         description:
-          "In BookFlow, I work on the backend side of the platform: API design, routes, controllers, validators, models, database interaction, and development of the application's server architecture.",
+          "In this freelance case, I work on a fullstack booking flow for beauty services: landing page, clear user path, request form, basic validation, and a backend foundation for processing bookings.",
         proof:
-          "I show experience with backend context, API contracts, data validation, application architecture, and interaction between frontend and server-side functionality.",
+          "I show freelance development experience where frontend and backend work as one flow: service presentation, CTA, request processing, API/data flow, and preparation for future booking-system development.",
       },
     },
   },

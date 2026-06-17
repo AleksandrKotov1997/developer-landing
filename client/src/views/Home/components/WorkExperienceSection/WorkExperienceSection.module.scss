@@ -1,0 +1,275 @@
+.section {
+  padding: 16px 0 56px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+  --experience-accent: var(--color-primary);
+  --experience-accent-surface: var(--color-primary-subtle);
+  --experience-accent-border: color-mix(
+    in srgb,
+    var(--color-primary) 18%,
+    transparent
+  );
+  padding: 24px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card:nth-child(2) {
+  --experience-accent: var(--color-primary-hover);
+  --experience-accent-surface: color-mix(
+    in srgb,
+    var(--color-primary-hover) 9%,
+    transparent
+  );
+  --experience-accent-border: color-mix(
+    in srgb,
+    var(--color-primary-hover) 18%,
+    transparent
+  );
+}
+
+.card:nth-child(3) {
+  --experience-accent: var(--color-accent-purple);
+  --experience-accent-surface: color-mix(
+    in srgb,
+    var(--color-accent-purple) 9%,
+    transparent
+  );
+  --experience-accent-border: color-mix(
+    in srgb,
+    var(--color-accent-purple) 18%,
+    transparent
+  );
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.cardHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.role {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.meta {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border: 1px solid var(--experience-accent-border);
+  border-radius: var(--radius-lg);
+  background: var(--experience-accent-surface);
+  color: var(--experience-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.description {
+  max-width: 900px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlight {
+  position: relative;
+  padding-left: 18px;
+  color: var(--color-text-primary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.highlight::before {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--experience-accent);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stackItem {
+  padding: 5px 9px;
+  border: 1px solid var(--experience-accent-border);
+  border-radius: var(--radius-lg);
+  background: var(--experience-accent-surface);
+  color: var(--experience-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (max-width: 1180px) {
+  .card {
+    padding: 22px;
+  }
+
+  .description {
+    max-width: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 12px 0 48px;
+  }
+
+  .list {
+    gap: 16px;
+  }
+
+  .card {
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .cardHeader {
+    gap: 5px;
+  }
+
+  .title {
+    line-height: 1.35;
+  }
+
+  .description {
+    font-size: 0.92rem;
+  }
+
+  .highlights {
+    gap: 7px;
+  }
+
+  .stack {
+    gap: 7px;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 8px 0 40px;
+  }
+
+  .list {
+    gap: 14px;
+  }
+
+  .card {
+    gap: 11px;
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 0.98rem;
+  }
+
+  .role {
+    font-size: 0.9rem;
+  }
+
+  .meta {
+    max-width: 100%;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .highlight {
+    padding-left: 16px;
+    font-size: 0.88rem;
+  }
+
+  .highlight::before {
+    width: 5px;
+    height: 5px;
+  }
+
+  .stackItem {
+    font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .card {
+    padding: 16px;
+  }
+
+  .meta {
+    padding: 5px 8px;
+  }
+
+  .stack {
+    gap: 6px;
+  }
+
+  .stackItem {
+    padding: 5px 8px;
+  }
+}

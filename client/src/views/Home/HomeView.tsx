@@ -3,7 +3,7 @@ import {
   Header,
   HeroSection,
   VisualProofSection,
-  ExperienceProofSection,
+  WorkExperienceSection,
   AboutSection,
   SkillsSection,
   WorkflowSection,
@@ -24,7 +24,7 @@ export const HomeView = () => {
         <VisualProofSection />
       </Reveal>
       <Reveal>
-        <ExperienceProofSection />
+        <WorkExperienceSection />
       </Reveal>
       <Reveal>
         <SkillsSection />
