@@ -1,6 +1,6 @@
 export * from "./hero";
 export * from "./visualProof";
-export * from "./experienceProof";
+export * from "./workExperience";
 export * from "./about";
 export * from "./skills";
 export * from "./workflow";

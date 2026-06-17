@@ -24,10 +24,10 @@
 ## Что реализовано
 
 - адаптивный лендинг-визитка;
-- секции с опытом, навыками, workflow, проектами и контактами;
+- секции с опытом, технологическим стеком, workflow, проектами и контактами;
 - интерактивный блок Work Scenario;
 - модальное окно с деталями проектов и backend-driven case study данными;
-- backend endpoint для генерации текста сценария;
+- backend endpoint для подбора готового scenario-based текста;
 - backend-валидация выбранных параметров через Zod;
 - scroll reveal анимации для секций и карточек;
 - переключение языка интерфейса RU / EN;
@@ -209,6 +209,8 @@ dealer-intelligence
 bookflow
 ```
 
+Slug являются техническими идентификаторами API и не отображаются как публичные названия проектов.
+
 ## Деплой
 
 Frontend задеплоен на Vercel:
@@ -231,7 +233,7 @@ https://developer-landing-api.onrender.com/api/health
 
 Контакты на сайте работают без backend: это обычные frontend-ссылки на телефон, Telegram, GitHub, GitLab и PDF-резюме.
 
-Backend сейчас нужен для блока Work Scenario.
+Backend сейчас нужен для блока Work Scenario и для выдачи project case details в модальном окне.
 
 ## Проверка сборки
 
